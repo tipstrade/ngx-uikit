@@ -2,8 +2,8 @@
   "name": "ngx-uikit",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "~12.2.16",
-    "@angular/core": "~12.2.16",
+    "@angular/common": "~13.3.6",
+    "@angular/core": "~13.3.6",
     "@types/uikit": "^3.3.2",
     "uikit": "^3.14.1"
   },
