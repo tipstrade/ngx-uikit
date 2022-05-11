@@ -7,6 +7,9 @@
     "@types/uikit": "^3.3.2",
     "uikit": "^3.14.1"
   },
+  "devDependencies": {
+    "@angular/platform-browser-dynamic": "~13.3.6"
+  },
   "dependencies": {
     "tslib": "^2.4.0"
   }
