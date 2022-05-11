@@ -1,16 +1,15 @@
-import { NgModule } from '@angular/core';
-import { SwitcherDirective } from './directives/switcher.directive';
-
+import { NgModule } from "@angular/core";
+import { SwitcherDirective } from "./directives/switcher.directive";
 
 
 @NgModule({
   declarations: [
-    SwitcherDirective
+    SwitcherDirective,
   ],
   imports: [
   ],
   exports: [
-    SwitcherDirective
+    SwitcherDirective,
   ],
 })
 export class NgxUikitModule { }

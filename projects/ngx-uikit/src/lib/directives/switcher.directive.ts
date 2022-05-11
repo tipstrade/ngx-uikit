@@ -1,9 +1,9 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, Input } from "@angular/core";
 import UIkit from "uikit";
 import { DirectiveBase, OptionsMap } from "./directive-base";
 
 @Directive({
-  selector: '[ngxUikitSwitcher]'
+  selector: "[ngxUikitSwitcher]",
 })
 export class SwitcherDirective extends DirectiveBase<UIkit.UIkitSwiterOptions> {
   public readonly attrName = "uk-switcher";

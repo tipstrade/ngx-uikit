@@ -1,9 +1,9 @@
 import { ElementRef } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
 import { setAndTriggerOptions } from "./test-helpers/index.spec";
-import { SwitcherDirective } from './switcher.directive';
+import { SwitcherDirective } from "./switcher.directive";
 
-describe('SwitcherDirective', () => {
+describe("SwitcherDirective", () => {
   let directive: SwitcherDirective;
 
   beforeEach(async () => {
@@ -18,7 +18,7 @@ describe('SwitcherDirective', () => {
     );
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(directive).toBeTruthy();
   });
 
