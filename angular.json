@@ -30,19 +30,19 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-uikit/tsconfig.lib.json",
-              "projects/ngx-uikit/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-uikit/**/*.ts",
+              "projects/ngx-uikit/**/*.html"
             ]
           }
         }
       }
     }
   },
-  "defaultProject": "ngx-uikit"
+  "defaultProject": "ngx-uikit",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
