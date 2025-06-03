@@ -1,0 +1,14 @@
+{
+  "name": "ngx-uikit",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": ">16.0.0",
+    "@angular/core": ">16.0.0",
+    "uikit": ">3.23.9"
+  },
+  "dependencies": {
+    "@types/uikit": "^3.14.5",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
