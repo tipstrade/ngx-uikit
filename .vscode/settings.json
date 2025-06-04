@@ -19,8 +19,9 @@
   "eslint.run": "onSave",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
   },
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
+  "files.insertFinalNewline": true
 }

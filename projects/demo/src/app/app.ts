@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { SwitcherDirective } from "../../../ngx-uikit/src/public-api";
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  selector: "app-root",
+  imports: [
+    SwitcherDirective,
+  ],
+  templateUrl: "./app.html",
+  styleUrl: "./app.scss",
 })
-export class App {
-  protected title = 'demo';
+export class AppComponent {
+  protected title = "demo";
 }

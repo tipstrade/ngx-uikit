@@ -5,9 +5,22 @@
   "projects": {
     "ngx-uikit": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "path": "projects/ngx-uikit/src/lib/components",
+          "type": "component"
+        },
+        "@schematics/angular:directive": {
+          "path": "projects/ngx-uikit/src/lib/directives",
+          "type": "directive"
+        },
+        "@schematics/angular:pipe": {
+          "path": "projects/ngx-uikit/src/lib/pipes"
+        }
+      },
       "root": "projects/ngx-uikit",
       "sourceRoot": "projects/ngx-uikit/src",
-      "prefix": "lib",
+      "prefix": "uikit",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
