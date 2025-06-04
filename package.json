@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4250",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build ngx-uikit",
+    "watch": "ng build ngx-uikit --watch --configuration development",
     "lint": "eslint projects/ngx-uikit --ext .ts,.html",
     "test": "ng test ngx-uikit",
     "coverage": "ng test ngx-uikit --code-coverage"

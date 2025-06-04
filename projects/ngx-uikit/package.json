@@ -1,14 +1,34 @@
 {
   "name": "ngx-uikit",
   "version": "0.0.1",
+  "description": "Angular wrappers for UIkit 3",
+  "author": "John Bayly",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "uikit",
+    "directives",
+    "ngx"
+  ],
+  "homepage": "https://github.com/tipstrade/ngx-uikit/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tipstrade/ngx-uikit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tipstrade/ngx-uikit/issues"
+  },
   "peerDependencies": {
-    "@angular/common": ">16.0.0",
-    "@angular/core": ">16.0.0",
+    "@angular/common": ">17.0.0",
+    "@angular/core": ">17.0.0",
     "uikit": ">3.23.9"
   },
-  "dependencies": {
+  "devDependencies": {
     "@types/uikit": "^3.14.5",
     "tslib": "^2.3.0"
   },
+  "module": "./fesm2022/ngx-uikit.mjs",
+  "es2020": "./fesm2022/ngx-uikit.mjs",
+  "typings": "./index.d.ts",
   "sideEffects": false
 }
