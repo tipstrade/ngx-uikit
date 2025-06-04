@@ -43,6 +43,15 @@
               "zone.js/testing"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-uikit/src/**/*.ts",
+              "projects/ngx-uikit/src/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -142,5 +151,11 @@
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "angular-eslint"
+    ],
+    "analytics": false
   }
 }
