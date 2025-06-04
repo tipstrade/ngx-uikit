@@ -5,7 +5,7 @@ import { UIkitDirective } from "./_uikit.directive";
 @Directive({
   selector: "[uikitTest]",
 })
-export class TestDirective extends UIkitDirective<number, object> {
+class TestDirective extends UIkitDirective<number, object> {
   @Input("uikitTest")
   public override options: number | null | undefined;
 
