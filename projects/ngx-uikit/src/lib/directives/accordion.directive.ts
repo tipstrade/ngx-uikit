@@ -7,9 +7,9 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class AccordionDirective extends UIkitDirective<UIkit.UIkitAccordionOptions, UIkit.UIkitAccordionElement> {
   @Input("uikitAccordion")
-  protected override options?: UIkit.UIkitAccordionOptions | null | undefined;
+  public override options: UIkit.UIkitAccordionOptions | null | undefined;
 
-  protected override hookComponent(options: UIkit.UIkitAccordionOptions | null | undefined): UIkit.UIkitAccordionElement | undefined {
-    return UIkit.accordion(this.el, options ?? undefined);
+  protected override hookComponent(options: UIkit.UIkitAccordionOptions | null | undefined): UIkit.UIkitAccordionElement {
+    return UIkit.accordion(this.el.nativeElement, options ?? undefined);
   }
 }

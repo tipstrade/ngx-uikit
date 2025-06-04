@@ -7,9 +7,9 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class SwitcherDirective extends UIkitDirective<UIkit.UIkitSwitcherOptions | string, UIkit.UIkitSwitcherElement> {
   @Input("uikitSwitcher")
-  public options?: string | UIkit.UIkitSwitcherOptions | null | undefined;
+  public options: string | UIkit.UIkitSwitcherOptions | null | undefined;
 
-  protected override hookComponent(options: UIkit.UIkitSwitcherOptions | string | null | undefined): UIkit.UIkitSwitcherElement | undefined {
+  protected override hookComponent(options: UIkit.UIkitSwitcherOptions | string | null | undefined): UIkit.UIkitSwitcherElement {
     if (typeof options === "string") {
       options = { connect: options };
     }

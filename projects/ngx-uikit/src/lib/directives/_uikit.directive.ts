@@ -28,7 +28,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     return this._ref;
   }
 
-  protected abstract options?: TOptions | null | undefined;
+  public abstract options: TOptions | null | undefined;
 
   // ========================
   // Lifecycle
@@ -49,7 +49,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
       return;
     }
 
-    if ("input" in changes) {
+    if ("options" in changes) {
       this.ref = this.hookComponent(this.options);
     }
   }
@@ -71,5 +71,5 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
 
   protected onDestroy?(): void;
 
-  protected abstract hookComponent(options: TOptions | null | undefined, isInitial?: boolean): TElement | undefined;
+  protected abstract hookComponent(options: TOptions | null | undefined, isInitial?: boolean): TElement;
 }
