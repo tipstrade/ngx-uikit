@@ -10,7 +10,7 @@
     "directives",
     "ngx"
   ],
-  "homepage": "https://github.com/tipstrade/ngx-uikit/",
+  "homepage": "https://github.com/tipstrade/ngx-uikit",
   "repository": {
     "type": "git",
     "url": "https://github.com/tipstrade/ngx-uikit.git"
@@ -23,12 +23,14 @@
     "@angular/core": ">17.0.0",
     "uikit": ">3.23.9"
   },
-  "devDependencies": {
-    "@types/uikit": "^3.14.5",
+  "dependencies": {
     "tslib": "^2.3.0"
   },
+  "devDependencies": {
+    "@types/uikit": "^3.14.5"
+  },
   "module": "./fesm2022/ngx-uikit.mjs",
-  "es2020": "./fesm2022/ngx-uikit.mjs",
+  "es2022": "./fesm2022/ngx-uikit.mjs",
   "typings": "./index.d.ts",
   "sideEffects": false
 }
