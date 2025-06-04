@@ -73,6 +73,13 @@ export function testUIkitDirective<T extends DirectiveWithRef>(config: TestConfi
       expect(context.destroySpy).toHaveBeenCalled();
     });
 
+    it ("should return the ref that has been set", () => {
+      const mockRef = { $el: null };
+
+      context.directiveInstance.ref = mockRef;
+      expect(context.directiveInstance.ref).toEqual(mockRef);
+    });
+
     it ("should have a UIkit element reference", () => {
       expect(context.directiveInstance.ref).toBeTruthy();
     });
