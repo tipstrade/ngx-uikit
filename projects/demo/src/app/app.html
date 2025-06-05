@@ -1,13 +1,35 @@
-<!-- Left menu column -->
-<div>
-  @for (item of components; track $index) {
-  <div>
-    <a [routerLink]="item">{{item | titlecase}}</a>
+<!-- Header -->
+<nav class="uk-background-primary">
+  <div class="uk-container uk-container-expand">
+    <div uk-navbar>
+      <ul class="uk-navbar-nav">
+        <li>
+          <a class="uk-navbar-item uk-logo" href="../" aria-label="Back to Home">
+            <img src="https://getuikit.com/images/uikit-logo.svg" class="uk-margin-small-right" width="28" height="34"
+              alt="UIkit">
+            <span style="color: white; font-size: 24px; text-transform: none;">UIkit</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  }
+</nav>
+
+<!-- Left menu column -->
+<div class="sidebar-left">
+  <h3>Documentation</h3>
+  <ul class="uk-nav uk-nav-default tm-nav">
+    @for (item of components; track $index) {
+    <li routerLinkActive="uk-active">
+      <a [routerLink]="item">{{item | titlecase}}</a>
+    </li>
+    }
+  </ul>
 </div>
 
 <!-- Right column -->
-<div>
-  <router-outlet></router-outlet>
+<div class="main uk-section uk-section-default">
+  <div class="uk-container uk-container-small uk-position-relative">
+    <router-outlet></router-outlet>
+  </div>
 </div>
