@@ -37,6 +37,7 @@ export class AppComponent {
     "image",
     "inverse",
     "leader",
+    "lightbox",
     "modal",
     "nav",
     "navbar",

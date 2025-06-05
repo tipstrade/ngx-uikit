@@ -19,6 +19,7 @@ export const routes: Routes = [
   { path: "image", loadComponent: () => import("./pages/image/image.component").then(c => c.ImageComponent), title: "image" },
   { path: "inverse", loadComponent: () => import("./pages/inverse/inverse.component").then(c => c.InverseComponent), title: "inverse" },
   { path: "leader", loadComponent: () => import("./pages/leader/leader.component").then(c => c.LeaderComponent), title: "leader" },
+  { path: "lightbox", loadComponent: () => import("./pages/lightbox/lightbox.component").then(c => c.LightboxComponent), title: "lightbox" },
   { path: "modal", loadComponent: () => import("./pages/modal/modal.component").then(c => c.ModalComponent), title: "modal" },
   { path: "nav", loadComponent: () => import("./pages/nav/nav.component").then(c => c.NavComponent), title: "nav" },
   { path: "navbar", loadComponent: () => import("./pages/navbar/navbar.component").then(c => c.NavbarComponent), title: "navbar" },
