@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+  @for (item of options; track $index) {
+  <div>
+    @if (item.type === "checkbox") {
+    <label>
+      <input type="checkbox" [formControlName]="item.name" data-name="{{item.name}}">
+      {{item.label}}
+    </label>
+    }
+  </div>
+  }
+</form>

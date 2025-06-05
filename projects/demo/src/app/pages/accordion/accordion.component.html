@@ -1,8 +1,11 @@
 <h1>Accordion</h1>
 
 <hr class="uk-margin-medium">
-<ul #accordion [uikitAccordion]="{multiple: true}">
-  <li class="uk-open">
+<app-options #options [options]="config" />
+
+<hr class="uk-margin-medium">
+<ul #accordion [uikitAccordion]="options.values$ | async">
+  <li class=" uk-open">
     <a class="uk-accordion-title" href>Item 1</a>
     <div class="uk-accordion-content">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -25,5 +28,6 @@
   </li>
 </ul>
 
+<hr class="uk-margin-medium">
 <button type="button" (click)="onCollapseAllClick(true)">Collapse All</button>
 <button type="button" (click)="onCollapseAllClick(false)">Collapse All (Immediate)</button>
