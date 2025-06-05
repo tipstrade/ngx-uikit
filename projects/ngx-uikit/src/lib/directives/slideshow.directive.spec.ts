@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { SlideshowDirective } from "./slideshow.directive";
 
-describe("SlideshowDirective", () => {
-  it("should create an instance", () => {
-    const directive = new SlideshowDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "SlideshowDirective", selector: "uikitSlideshow", type: SlideshowDirective });

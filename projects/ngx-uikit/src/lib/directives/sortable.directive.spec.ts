@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { SortableDirective } from "./sortable.directive";
 
-describe("SortableDirective", () => {
-  it("should create an instance", () => {
-    const directive = new SortableDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "SortableDirective", selector: "uikitSortable", type: SortableDirective });

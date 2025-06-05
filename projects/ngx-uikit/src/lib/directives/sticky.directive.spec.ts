@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { StickyDirective } from "./sticky.directive";
 
-describe("StickyDirective", () => {
-  it("should create an instance", () => {
-    const directive = new StickyDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "StickyDirective", selector: "uikitSticky", type: StickyDirective });
