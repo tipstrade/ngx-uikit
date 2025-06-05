@@ -1,8 +1,8 @@
 import { Directive } from "@angular/core";
 
 @Directive({
-  selector: "[uikitParralax]",
+  selector: "[uikitParallax]",
 })
-export class ParralaxDirective {
+export class ParallaxDirective {
   constructor() { }
 }
