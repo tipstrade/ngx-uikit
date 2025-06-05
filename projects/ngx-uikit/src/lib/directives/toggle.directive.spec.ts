@@ -1,8 +1,29 @@
+import UIkit from "uikit";
+import { DirectiveTestContext, testUIkitDirective } from "./_directive-test-helpers.spec";
 import { ToggleDirective } from "./toggle.directive";
 
-describe("ToggleDirective", () => {
-  it("should create an instance", () => {
-    const directive = new ToggleDirective();
-    expect(directive).toBeTruthy();
+testUIkitDirective({ name: "ToggleDirective", selector: "uikitToggle", type: ToggleDirective }, (getContext) => {
+  let context: DirectiveTestContext<ToggleDirective>;
+
+  beforeEach(() => {
+    context = getContext();
+  });
+
+  it("should handle complex options", () => {
+    const options = { connect: "~" } as any as UIkit.UIkitToggleOptions;
+
+    context.fixture.componentInstance.options = options;
+    context.fixture.detectChanges();
+
+    expect(context.directiveInstance.options).toEqual(options);
+  });
+
+  it("should handle string options", () => {
+    const options = "~";
+
+    context.fixture.componentInstance.options = options;
+    context.fixture.detectChanges();
+
+    expect(context.directiveInstance.options).toEqual(options);
   });
 });

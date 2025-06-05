@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { UploadDirective } from "./upload.directive";
 
-describe("UploadDirective", () => {
-  it("should create an instance", () => {
-    const directive = new UploadDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "UploadDirective", selector: "uikitUpload", type: UploadDirective });

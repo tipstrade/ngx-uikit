@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { SliderDirective } from "./slider.directive";
 
-describe("SliderDirective", () => {
-  it("should create an instance", () => {
-    const directive = new SliderDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "SliderDirective", selector: "uikitSlider", type: SliderDirective });

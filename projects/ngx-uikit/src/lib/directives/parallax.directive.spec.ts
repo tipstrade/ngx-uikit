@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { ParallaxDirective } from "./parallax.directive";
 
-describe("ParallaxDirective", () => {
-  it("should create an instance", () => {
-    const directive = new ParallaxDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "ParallaxDirective", selector: "uikitParallax", type: ParallaxDirective });

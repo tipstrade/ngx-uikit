@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { ScrollDirective } from "./scroll.directive";
 
-describe("ScrollDirective", () => {
-  it("should create an instance", () => {
-    const directive = new ScrollDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "ScrollDirective", selector: "uikitScroll", type: ScrollDirective });

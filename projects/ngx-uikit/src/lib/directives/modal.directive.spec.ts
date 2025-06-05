@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { ModalDirective } from "./modal.directive";
 
-describe("ModalDirective", () => {
-  it("should create an instance", () => {
-    const directive = new ModalDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "ModalDirective", selector: "uikitModal", type: ModalDirective });

@@ -4,5 +4,4 @@ import { Directive } from "@angular/core";
   selector: "[uikitInverse]",
 })
 export class InverseDirective {
-  constructor() { }
 }

@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { NavDirective } from "./nav.directive";
 
-describe("NavDirective", () => {
-  it("should create an instance", () => {
-    const directive = new NavDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "NavDirective", selector: "uikitNav", type: NavDirective });
