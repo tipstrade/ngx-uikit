@@ -7,8 +7,7 @@
     "build": "ng build ngx-uikit",
     "watch": "ng build ngx-uikit --watch --configuration development",
     "lint": "eslint projects/ngx-uikit --ext .ts,.html",
-    "test": "ng test ngx-uikit",
-    "coverage": "ng test ngx-uikit --code-coverage"
+    "test": "ng test ngx-uikit --code-coverage"
   },
   "private": true,
   "dependencies": {
