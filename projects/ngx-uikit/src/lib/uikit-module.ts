@@ -15,4 +15,4 @@ import { TooltipDirective } from "./directives/tooltip.directive";
     TooltipDirective,
   ],
 })
-export class UikitModule { }
+export class UIkitModule { }
