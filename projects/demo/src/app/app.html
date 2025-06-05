@@ -1,6 +1,10 @@
 <!-- Left menu column -->
 <div>
-  Left menu column
+  @for (item of components; track $index) {
+  <div>
+    <a [routerLink]="item">{{item | titlecase}}</a>
+  </div>
+  }
 </div>
 
 <!-- Right column -->
