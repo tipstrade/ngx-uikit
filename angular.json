@@ -60,6 +60,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
+          "path": "projects/demo/src/app",
+          "type": "component",
           "style": "scss"
         }
       },

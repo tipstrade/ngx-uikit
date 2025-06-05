@@ -1,14 +1,13 @@
 import { Component } from "@angular/core";
-import { SwitcherDirective } from "../../../ngx-uikit/src/public-api";
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: "app-root",
   imports: [
-    SwitcherDirective,
+    RouterModule,
   ],
   templateUrl: "./app.html",
   styleUrl: "./app.scss",
 })
 export class AppComponent {
-  protected title = "demo";
 }
