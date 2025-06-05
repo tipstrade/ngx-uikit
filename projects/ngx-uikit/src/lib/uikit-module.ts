@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
-import { SwitcherDirective } from "../public-api";
 import { AccordionDirective } from "./directives/accordion.directive";
+import { SwitcherDirective } from "./directives/switcher.directive";
 import { TooltipDirective } from "./directives/tooltip.directive";
 
 @NgModule({
