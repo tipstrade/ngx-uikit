@@ -1,7 +1,7 @@
 <h1>Accordion</h1>
 
 <hr class="uk-margin-medium">
-<ul uk-accordion>
+<ul #accordion [uikitAccordion]="{multiple: true}">
   <li class="uk-open">
     <a class="uk-accordion-title" href>Item 1</a>
     <div class="uk-accordion-content">
@@ -24,3 +24,6 @@
     </div>
   </li>
 </ul>
+
+<button type="button" (click)="onCollapseAllClick(true)">Collapse All</button>
+<button type="button" (click)="onCollapseAllClick(false)">Collapse All (Immediate)</button>
