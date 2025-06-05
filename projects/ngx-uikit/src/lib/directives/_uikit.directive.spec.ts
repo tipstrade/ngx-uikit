@@ -14,14 +14,14 @@ class TestDirective extends UIkitDirective<number, object> {
   }
 
   protected override onChanges(_changes: SimpleChanges): void {
-    this.ref = this.hookComponent(this.options);
+    this.ref = this.hookComponent(this.el.nativeElement, this.options);
   }
 
   protected override onDestroy(): void {
     // Noop
   }
 
-  protected override hookComponent(_options: number | null | undefined, _isInitial?: boolean): object {
+  protected override hookComponent(_element: HTMLElement, _options: number | null | undefined, _isInitial?: boolean): object {
     return {};
   }
 }

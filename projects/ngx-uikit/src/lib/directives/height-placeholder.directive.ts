@@ -4,5 +4,4 @@ import { Directive } from "@angular/core";
   selector: "[uikitHeightPlaceholder]",
 })
 export class HeightPlaceholderDirective {
-  constructor() { }
 }

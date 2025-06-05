@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { HeightMatchDirective } from "./height-match.directive";
 
-describe("HeightMatchDirective", () => {
-  it("should create an instance", () => {
-    const directive = new HeightMatchDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "HeightMatchDirective", selector: "uikitHeightMatch", type: HeightMatchDirective });

@@ -35,7 +35,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
   // ========================
 
   ngAfterViewInit(): void {
-    this.ref = this.hookComponent(this.options, true);
+    this.ref = this.hookComponent(this.el.nativeElement, this.options, true);
 
     if (this.afterViewInit) {
       this.afterViewInit();
@@ -50,7 +50,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     }
 
     if ("options" in changes) {
-      this.ref = this.hookComponent(this.options);
+      this.ref = this.hookComponent(this.el.nativeElement, this.options);
     }
   }
 
@@ -58,6 +58,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     if (this.onDestroy) {
       this.onDestroy();
     }
+
     uikitDestroy(this.ref);
   }
 
@@ -67,9 +68,11 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
 
   protected afterViewInit?(): void;
 
+  protected createComponent?(element: HTMLElement, options: TOptions | null | undefined, isInitial?: boolean): TElement;
+
   protected onChanges?(changes: SimpleChanges): void;
 
   protected onDestroy?(): void;
 
-  protected abstract hookComponent(options: TOptions | null | undefined, isInitial?: boolean): TElement;
+  protected abstract hookComponent(element: HTMLElement, options: TOptions | null | undefined, isInitial?: boolean): TElement;
 }

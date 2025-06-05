@@ -1,8 +1,19 @@
+import { DirectiveTestContext, testUIkitDirective } from "./_directive-test-helpers.spec";
 import { FilterDirective } from "./filter.directive";
 
-describe("FilterDirective", () => {
-  it("should create an instance", () => {
-    const directive = new FilterDirective();
-    expect(directive).toBeTruthy();
+testUIkitDirective({ name: "FilterDirective", selector: "uikitFilter", type: FilterDirective }, (getContext) => {
+  let context: DirectiveTestContext<FilterDirective>;
+
+  beforeEach(() => {
+    context = getContext();
+  });
+
+  it("should handle string options", () => {
+    const options = "abc";
+
+    context.fixture.componentInstance.options = options;
+    context.fixture.detectChanges();
+
+    expect(context.directiveInstance.options).toEqual(options);
   });
 });

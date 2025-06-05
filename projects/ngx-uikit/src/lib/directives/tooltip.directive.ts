@@ -9,11 +9,11 @@ export class TooltipDirective extends UIkitDirective<UIkit.UIkitTooltipOptions |
   @Input("uikitTooltip")
   public override options: UIkit.UIkitTooltipOptions | string | null | undefined;
 
-  protected override hookComponent(options: UIkit.UIkitTooltipOptions | string | null | undefined): UIkit.UIkitTooltipElement {
+  protected override hookComponent(element: HTMLElement, options: UIkit.UIkitTooltipOptions | string | null | undefined): UIkit.UIkitTooltipElement {
     if (typeof options === "string") {
       options = { title: options };
     }
 
-    return UIkit.tooltip(this.el.nativeElement, options ?? undefined);
+    return UIkit.tooltip(element, options ?? undefined);
   }
 }

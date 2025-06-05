@@ -4,5 +4,4 @@ import { Directive } from "@angular/core";
   selector: "[uikitDropnav]",
 })
 export class DropnavDirective {
-  constructor() { }
 }

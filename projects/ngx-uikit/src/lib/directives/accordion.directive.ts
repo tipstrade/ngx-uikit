@@ -9,7 +9,7 @@ export class AccordionDirective extends UIkitDirective<UIkit.UIkitAccordionOptio
   @Input("uikitAccordion")
   public override options: UIkit.UIkitAccordionOptions | null | undefined;
 
-  protected override hookComponent(options: UIkit.UIkitAccordionOptions | null | undefined): UIkit.UIkitAccordionElement {
-    return UIkit.accordion(this.el.nativeElement, options ?? undefined);
+  protected override hookComponent(element: HTMLElement, options: UIkit.UIkitAccordionOptions | null | undefined): UIkit.UIkitAccordionElement {
+    return UIkit.accordion(element, options ?? undefined);
   }
 }

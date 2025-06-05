@@ -1,8 +1,4 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { CoverDirective } from "./cover.directive";
 
-describe("CoverDirective", () => {
-  it("should create an instance", () => {
-    const directive = new CoverDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+testUIkitDirective({ name: "CoverDirective", selector: "uikitCover", type: CoverDirective });
