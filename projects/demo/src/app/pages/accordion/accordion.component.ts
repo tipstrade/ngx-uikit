@@ -19,7 +19,6 @@ export class AccordionComponent {
     { name: "multiple", type: "checkbox", defaultValue: false, label: "Multiple" },
     { name: "animation", type: "checkbox", defaultValue: true, label: "Animated" },
     { name: "collapsible", type: "radio", defaultValue: true, label: "Collapsible", values: [true, false, null] },
-    { name: "x-collapsible", type: "select", defaultValue: true, label: "Collapsible", values: [true, false, null] },
     { name: "duration", type: "number", defaultValue: 200, min: 0, step: 50, label: "Duration" },
     { name: "transition", type: "textbox", defaultValue: "ease", label: "Transition" },
   ] satisfies OptionConfig[];
