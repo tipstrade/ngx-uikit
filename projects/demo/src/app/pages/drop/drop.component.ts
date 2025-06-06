@@ -2,10 +2,11 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { DropDirective } from "../../../../../ngx-uikit/src/public-api";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
+import { MergePipe } from "../../pipes/merge-pipe";
 
 @Component({
   selector: "app-drop",
-  imports: [CommonModule, DropDirective, OptionsComponent],
+  imports: [CommonModule, OptionsComponent, MergePipe, DropDirective],
   templateUrl: "./drop.component.html",
   styleUrl: "./drop.component.scss",
 })

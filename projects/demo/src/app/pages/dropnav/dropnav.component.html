@@ -1,33 +1,35 @@
-<h1>Dropnav</h1>
+<div #container>
+  <h1>Dropnav</h1>
 
-<hr class="uk-margin-medium">
-<div class="uk-alert uk-alert-warning">Not implemented in ngx-uikit</div>
-<app-options #options [config]="config"></app-options>
+  <hr class="uk-margin-medium">
+  <div class="uk-alert uk-alert-warning">Not implemented in ngx-uikit</div>
+  <app-options #options [config]="config"></app-options>
 
-<hr class="uk-margin-medium">
-<nav uk-dropnav>
-  <ul class="uk-subnav">
-    <li class="uk-active"><a href="#">Active</a></li>
-    <li>
-      <a href>Parent <span uk-drop-parent-icon></span></a>
-      <div class="uk-dropdown">
-        <ul class="uk-nav uk-dropdown-nav">
-          <li class="uk-active"><a href="#">Active</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <a href>Parent <span uk-drop-parent-icon></span></a>
-      <div class="uk-dropdown">
-        <ul class="uk-nav uk-dropdown-nav">
-          <li class="uk-active"><a href="#">Active</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-        </ul>
-      </div>
-    </li>
-    <li><a href="#">Item</a></li>
-  </ul>
-</nav>
+  <hr class="uk-margin-medium">
+  <nav uk-dropnav>
+    <ul class="uk-subnav">
+      <li class="uk-active"><a href="#">Active</a></li>
+      <li>
+        <a href>Parent <span uk-drop-parent-icon></span></a>
+        <div class="uk-dropdown">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href>Parent <span uk-drop-parent-icon></span></a>
+        <div class="uk-dropdown">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">Item</a></li>
+    </ul>
+  </nav>
+</div>

@@ -1,18 +1,23 @@
-<h1>Dropdown</h1>
+<div #container>
+  <h1>Dropdown</h1>
 
-<hr class="uk-margin-medium">
-<app-options #options [config]="config"></app-options>
+  <hr class="uk-margin-medium">
+  <app-options #options [config]="config"></app-options>
 
-<hr class="uk-margin-medium">
-<div class="uk-inline">
-  <button class="uk-button uk-button-default" type="button">Using Options</button>
-  <div [uikitDropdown]="options.values$ | async">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore
-    et dolore magna aliqua.</div>
-</div>
+  <hr class="uk-margin-medium">
+  <div class="uk-inline">
+    <button class="uk-button uk-button-default" type="button">Using Options</button>
+    <div [uikitDropdown]="options.values$ | async | merge:{container: container}">Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do
+      eiusmod
+      tempor incididunt ut labore
+      et dolore magna aliqua.</div>
+  </div>
 
-<div class="uk-inline uk-margin-small-left">
-  <button class="uk-button uk-button-default" type="button">Click</button>
-  <div [uikitDropdown]="{mode: 'click'}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.</div>
+  <div class="uk-inline uk-margin-small-left">
+    <button class="uk-button uk-button-default" type="button">Click</button>
+    <div [uikitDropdown]="{mode: 'click'}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor
+      incididunt ut labore et dolore magna aliqua.</div>
+  </div>
 </div>

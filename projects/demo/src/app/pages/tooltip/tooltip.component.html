@@ -1,4 +1,11 @@
 <h1>Tooltip</h1>
 
 <hr class="uk-margin-medium">
-<button class="uk-button uk-button-default" uk-tooltip="Hello World">Hover</button>
+<app-options #options [config]="config"></app-options>
+
+<hr class="uk-margin-medium">
+<div #container>
+  <button class="uk-button uk-button-default"
+    [uikitTooltip]="options.values$ | async | merge:{container:container}">Hover</button>
+  <button class="uk-button uk-button-default" uikitTooltip="Hello World">Static Tooltip</button>
+</div>
