@@ -3,7 +3,7 @@ import { Component, inject, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import UIkit from "uikit";
 import { AccordionDirective } from "../../../../../ngx-uikit/src/public-api";
-import { FormOption, OptionsComponent } from "../../components/options/options.component";
+import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 import { RequiredFormValues } from "../../core/helpers";
 
 @Component({
@@ -22,7 +22,7 @@ export class AccordionComponent {
     { name: "x-collapsible", type: "select", defaultValue: true, label: "Collapsible", values: [true, false, null] },
     { name: "duration", type: "number", defaultValue: 200, min: 0, step: 50, label: "Duration" },
     { name: "transition", type: "textbox", defaultValue: "ease", label: "Transition" },
-  ] satisfies FormOption[];
+  ] satisfies OptionConfig[];
 
   @ViewChild(AccordionDirective)
   private accordion?: AccordionDirective;

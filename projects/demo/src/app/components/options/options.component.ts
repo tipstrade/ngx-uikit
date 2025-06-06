@@ -1,13 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, Input, OnChanges, Pipe, PipeTransform, SimpleChanges } from "@angular/core";
 import { ReactiveFormsModule, UntypedFormBuilder } from "@angular/forms";
-import { debounceTime, startWith } from "rxjs";
+import { debounceTime, filter } from "rxjs";
 
-export type FormOption = { name: string, label: string } & (
+export type OptionConfig = { name: string, label: string } & (
   { type: "checkbox", defaultValue: boolean } |
   { type: "textbox" | "textarea", defaultValue: string, placeholder?: string } |
   { type: "radio" | "select", defaultValue: unknown, values: unknown[], placeholder?: string } |
-  { type: "number", defaultValue: number, min?: number, max?: number, step?: number, placeholder?: string }
+  { type: "number", defaultValue: number | null, min?: number, max?: number, step?: number, placeholder?: string }
 );
 
 @Pipe({
@@ -37,13 +37,13 @@ export class OptionsComponent implements OnChanges {
 
   public readonly form = this.formBuilder.group({});
 
-  public readonly values$ = this.form.valueChanges.pipe(debounceTime(300), startWith(this.form.value));
+  public readonly values$ = this.form.valueChanges.pipe(debounceTime(150), filter(x => !!Object.keys(x).length));
 
   @Input()
-  public options?: FormOption[];
+  public config?: OptionConfig[];
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ("options" in changes) {
+    if ("config" in changes) {
       this.buildForm();
     }
   }
@@ -55,16 +55,18 @@ export class OptionsComponent implements OnChanges {
   private buildForm(): void {
     this.clearForm();
 
-    if (!this.options) {
+    if (!this.config) {
       return;
     }
 
-    this.options.forEach((x) => {
+    this.config.forEach((x) => {
       this.form.addControl(x.name, this.formBuilder.control(x.defaultValue));
     });
 
-    this.form.markAsPristine();
-    this.form.markAsUntouched();
-    this.form.updateValueAndValidity();
+    queueMicrotask(() => {
+      this.form.markAsPristine();
+      this.form.markAsUntouched();
+      this.form.updateValueAndValidity();
+    });
   }
 }

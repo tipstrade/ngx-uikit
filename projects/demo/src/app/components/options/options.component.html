@@ -1,5 +1,5 @@
 <form [formGroup]="form">
-  @for (item of options; track $index) {
+  @for (item of config; track $index) {
   <div>
     @if (item.type === "checkbox") {
     <!-- Checkboxes -->

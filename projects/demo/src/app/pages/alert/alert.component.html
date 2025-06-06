@@ -1,7 +1,10 @@
 <h1>Alert</h1>
 
 <hr class="uk-margin-medium">
-<div uk-alert>
+<app-options #options [config]="config"></app-options>
+
+<hr class="uk-margin-medium">
+<div [uikitAlert]="options.values$ | async">
   <a href class="uk-alert-close" uk-close></a>
   <h3>Notice</h3>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna

@@ -1,7 +1,7 @@
 <h1>Accordion</h1>
 
 <hr class="uk-margin-medium">
-<app-options #options [options]="config" />
+<app-options #options [config]="config" />
 
 <hr class="uk-margin-medium">
 <ul #accordion [uikitAccordion]="options.values$ | async">
