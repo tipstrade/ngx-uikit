@@ -5,7 +5,7 @@
     <!-- Checkboxes -->
     <div class="uk-margin">
       <label>
-        <input type="checkbox" [formControlName]="item.name">
+        <input type="checkbox" class="uk-checkbox" [formControlName]="item.name">
         {{item.label}}
       </label>
     </div>
@@ -53,8 +53,8 @@
     <div class="uk-margin">
       <label class="uk-form-label">{{item.label}}</label>
       <div>
-        <label *ngFor="let opt of item.values">
-          <input type="radio" [value]="opt" [formControlName]="item.name">
+        <label *ngFor="let opt of item.values" class="uk-margin-small-right">
+          <input type="radio" class="uk-radio" [value]="opt" [formControlName]="item.name">
           {{opt | value}}
         </label>
       </div>
