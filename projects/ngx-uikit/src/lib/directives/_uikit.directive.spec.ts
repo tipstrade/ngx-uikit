@@ -1,5 +1,5 @@
 import { Directive, Input, SimpleChanges } from "@angular/core";
-import { testUIkitDirective } from "./_directive-test-helpers.spec";
+import { createDirectiveFixtureHost, DirectiveTestContext } from "./_directive-test-helpers.spec";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
@@ -26,4 +26,18 @@ class TestDirective extends UIkitDirective<number, object> {
   }
 }
 
-testUIkitDirective({ name: "TestDirective", selector: "uikitTest", type: TestDirective });
+describe("TestDirective", () => {
+  let context: DirectiveTestContext<TestDirective>;
+
+  beforeEach(() => {
+    context = createDirectiveFixtureHost("<div [uikitTest]=\"options\"></div>", TestDirective, {}, false);
+  });
+
+  it ("should only set ref once", () => {
+    const spy = spyOnProperty(context.directiveInstance, "ref", "set").and.callThrough();
+
+    context.fixture.detectChanges();
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+});

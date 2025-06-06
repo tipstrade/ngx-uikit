@@ -32,7 +32,7 @@ export const addDestroySpy = (directive: DirectiveWithRef<unknown, unknown>): ja
   return directive.ref.$destroy;
 };
 
-export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, unknown>, TOptions>(template: string, type: Type<T>, options: TOptions): DirectiveTestContext<T> => {
+export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, unknown>, TOptions>(template: string, type: Type<T>, options: TOptions, detectChanges = true): DirectiveTestContext<T> => {
   @Component({
     template,
     imports: [type],
@@ -46,7 +46,10 @@ export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, un
   }).createComponent(TestHostComponent);
 
   fixture.componentInstance.options = options;
-  fixture.detectChanges();
+
+  if (detectChanges) {
+    fixture.detectChanges();
+  }
 
   const directiveInstance = getDirectiveFromFixture(fixture, type);
 
