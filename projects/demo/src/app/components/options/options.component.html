@@ -2,10 +2,44 @@
   @for (item of options; track $index) {
   <div>
     @if (item.type === "checkbox") {
+    <!-- Checkboxes -->
     <label>
-      <input type="checkbox" [formControlName]="item.name" data-name="{{item.name}}">
+      <input type="checkbox" [formControlName]="item.name">
       {{item.label}}
     </label>
+
+    } @else if (item.type === "textbox") {
+    <!-- Textbox -->
+    <label>{{item.label}}</label>
+    <input type="text" [formControlName]="item.name" [placeholder]="item.placeholder">
+
+    } @else if (item.type === "textarea") {
+    <!-- Textarea -->
+    <label>{{item.label}}</label>
+    <textarea [formControlName]="item.name" [placeholder]="item.placeholder"></textarea>
+
+    } @else if (item.type === "number") {
+    <label>{{item.label}}</label>
+    <input type="number" [formControlName]="item.name" [placeholder]="item.placeholder" [min]="item.min ?? null"
+      [max]="item.max ?? null" [step]="item.step ?? null">
+
+    } @else if (item.type === "select") {
+    <!-- Select-->
+    <label>{{item.label}}</label>
+    <select [formControlName]="item.name">
+      <option [ngValue]="opt" *ngFor="let opt of item.values">{{opt | value}}</option>
+    </select>
+
+    } @else if (item.type === "radio") {
+    <!-- Select-->
+    <label>{{item.label}}</label>
+    <div>
+      <label *ngFor="let opt of item.values">
+        <input type="radio" [value]="opt" [formControlName]="item.name">
+        {{opt | value}}
+      </label>
+    </div>
+
     }
   </div>
   }
