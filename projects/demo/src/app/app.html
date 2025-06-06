@@ -10,8 +10,11 @@
             <span style="color: white; font-size: 24px; text-transform: none;">UIkit</span>
           </a>
         </li>
-        <li>
+        <li class="uk-flex">
           <a class="header-button" href="https://getuikit.com/docs/introduction" target="_blank">Full Documentation</a>
+          <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon uk-margin-medium-left"
+            uk-navbar-toggle-icon href="#offcanvas" uk-toggle aria-label="Open menu" role="button" aria-expanded="false"
+            style="color: white;"></a>
         </li>
       </ul>
     </div>
@@ -19,7 +22,7 @@
 </nav>
 
 <!-- Left menu column -->
-<div class="sidebar-left">
+<div class="sidebar-left uk-visible@m">
   <h3>Documentation</h3>
   <ul class="uk-nav uk-nav-default tm-nav">
     @for (item of components; track $index) {
@@ -34,5 +37,20 @@
 <div class="main uk-section uk-section-default">
   <div class="uk-container uk-container-small uk-position-relative">
     <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Mobile off-canvas -->
+<div id="offcanvas" uk-offcanvas="overlay: true;">
+  <div class="uk-offcanvas-bar">
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <h3>Documentation</h3>
+    <ul class="uk-nav uk-nav-default tm-nav">
+      @for (item of components; track $index) {
+      <li routerLinkActive="uk-active">
+        <a [routerLink]="item">{{item | titlecase}}</a>
+      </li>
+      }
+    </ul>
   </div>
 </div>
