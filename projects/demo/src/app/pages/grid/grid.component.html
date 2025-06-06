@@ -1,8 +1,10 @@
 <h1>Grid</h1>
 
 <hr class="uk-margin-medium">
+<app-options #options [config]="config"></app-options>
 
-<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+<hr class="uk-margin-medium">
+<div class="uk-child-width-expand@s uk-text-center" [uikitGrid]="options.values$ | async">
   <div>
     <div class="uk-card uk-card-default uk-card-body">Item</div>
   </div>

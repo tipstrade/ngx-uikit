@@ -1,9 +1,11 @@
 <h1>Filter</h1>
 
+<hr class="uk-margin-medium">
+<div class="uk-alert uk-alert-warning">Buggy</div>
+<app-options #options [config]="config"></app-options>
 
 <hr class="uk-margin-medium">
-
-<div uk-filter="target: .js-filter">
+<div [uikitFilter]="options.values$ | async | merge:{target: '.js-filter'}">
   <ul class="uk-subnav uk-subnav-pill">
     <li uk-filter-control=".tag-white"><a href="#">White</a></li>
     <li uk-filter-control=".tag-blue"><a href="#">Blue</a></li>
