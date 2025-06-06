@@ -1,43 +1,63 @@
-<form [formGroup]="form">
+<form [formGroup]="form" class="uk-form-stacked">
   @for (item of options; track $index) {
   <div>
     @if (item.type === "checkbox") {
     <!-- Checkboxes -->
-    <label>
-      <input type="checkbox" [formControlName]="item.name">
-      {{item.label}}
-    </label>
+    <div class="uk-margin">
+      <label>
+        <input type="checkbox" [formControlName]="item.name">
+        {{item.label}}
+      </label>
+    </div>
 
     } @else if (item.type === "textbox") {
     <!-- Textbox -->
-    <label>{{item.label}}</label>
-    <input type="text" [formControlName]="item.name" [placeholder]="item.placeholder">
+    <div class="uk-margin">
+      <label class="uk-form-label">{{item.label}}</label>
+      <div class="uk-form-controls">
+        <input type="text" class="uk-input" [formControlName]="item.name" [placeholder]="item.placeholder">
+      </div>
+    </div>
 
     } @else if (item.type === "textarea") {
     <!-- Textarea -->
-    <label>{{item.label}}</label>
-    <textarea [formControlName]="item.name" [placeholder]="item.placeholder"></textarea>
+    <div class="uk-margin">
+      <label class="uk-form-label">{{item.label}}</label>
+      <div class="uk-form-controls">
+        <textarea class="uk-input" [formControlName]="item.name" [placeholder]="item.placeholder"></textarea>
+      </div>
+    </div>
 
     } @else if (item.type === "number") {
-    <label>{{item.label}}</label>
-    <input type="number" [formControlName]="item.name" [placeholder]="item.placeholder" [min]="item.min ?? null"
-      [max]="item.max ?? null" [step]="item.step ?? null">
+    <div class="uk-margin">
+      <label class="uk-form-label">{{item.label}}</label>
+      <div class="uk-form-controls">
+        <input type="number" class="uk-input" [formControlName]="item.name" [placeholder]="item.placeholder"
+          [min]="item.min ?? null" [max]="item.max ?? null" [step]="item.step ?? null">
+      </div>
+    </div>
 
     } @else if (item.type === "select") {
     <!-- Select-->
-    <label>{{item.label}}</label>
-    <select [formControlName]="item.name">
-      <option [ngValue]="opt" *ngFor="let opt of item.values">{{opt | value}}</option>
-    </select>
+    <div class="uk-margin">
+      <label class="uk-form-label">{{item.label}}</label>
+      <div class="uk-form-controls">
+        <select class="uk-select" [formControlName]="item.name">
+          <option [ngValue]="opt" *ngFor="let opt of item.values">{{opt | value}}</option>
+        </select>
+      </div>
+    </div>
 
     } @else if (item.type === "radio") {
     <!-- Select-->
-    <label>{{item.label}}</label>
-    <div>
-      <label *ngFor="let opt of item.values">
-        <input type="radio" [value]="opt" [formControlName]="item.name">
-        {{opt | value}}
-      </label>
+    <div class="uk-margin">
+      <label class="uk-form-label">{{item.label}}</label>
+      <div>
+        <label *ngFor="let opt of item.values">
+          <input type="radio" [value]="opt" [formControlName]="item.name">
+          {{opt | value}}
+        </label>
+      </div>
     </div>
 
     }
