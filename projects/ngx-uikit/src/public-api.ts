@@ -38,6 +38,8 @@ export { ToggleDirective } from "./lib/directives/toggle.directive";
 export { TooltipDirective } from "./lib/directives/tooltip.directive";
 export { UploadDirective } from "./lib/directives/upload.directive";
 export { VideoDirective } from "./lib/directives/video.directive";
+export { UIKIT_CONFIG } from "./lib/uikit-config";
+export type { UIkitConfig } from "./lib/uikit-config";
 export { UIkitModule } from "./lib/uikit-module";
 
 //
