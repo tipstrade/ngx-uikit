@@ -1,18 +1,34 @@
 import { CommonModule } from "@angular/common";
-import { Component, inject, Input, OnChanges, SimpleChanges } from "@angular/core";
+import { Component, inject, Input, OnChanges, Pipe, PipeTransform, SimpleChanges } from "@angular/core";
 import { ReactiveFormsModule, UntypedFormBuilder } from "@angular/forms";
-import { startWith } from "rxjs";
+import { debounceTime, startWith } from "rxjs";
 
-export interface FormOption {
-  name: string
-  label: string
-  type: "text" | "checkbox"
-  defaultValue: unknown
+export type FormOption = { name: string, label: string } & (
+  { type: "checkbox", defaultValue: boolean } |
+  { type: "textbox" | "textarea", defaultValue: string, placeholder?: string } |
+  { type: "radio" | "select", defaultValue: unknown, values: unknown[], placeholder?: string } |
+  { type: "number", defaultValue: number, min?: number, max?: number, step?: number, placeholder?: string }
+);
+
+@Pipe({
+  name: "value",
+})
+export class ValuePipe implements PipeTransform {
+  transform(value: unknown): string {
+    if (value === null) {
+      return "[null]";
+    }
+    else if (value === undefined) {
+      return "[undefined]";
+    }
+
+    return `${value}`;
+  }
 }
 
 @Component({
   selector: "app-options",
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ValuePipe],
   templateUrl: "./options.component.html",
   styleUrl: "./options.component.scss",
 })
@@ -21,7 +37,7 @@ export class OptionsComponent implements OnChanges {
 
   public readonly form = this.formBuilder.group({});
 
-  public readonly values$ = this.form.valueChanges.pipe(startWith(this.form.value));
+  public readonly values$ = this.form.valueChanges.pipe(debounceTime(300), startWith(this.form.value));
 
   @Input()
   public options?: FormOption[];
