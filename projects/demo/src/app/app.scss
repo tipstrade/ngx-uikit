@@ -13,7 +13,6 @@
   }
 }
 .main {
-  padding-left: 40px;
   @media (min-width: 960px) {
     padding-left: 240px;
   }
@@ -40,9 +39,7 @@
 }
 
 .header-button {
-  color: rgba(255, 255, 255, 0.8);
   &:hover {
-    color: rgba(255, 255, 255);
     text-underline-offset: 15px;
     text-decoration: underline;
   }
