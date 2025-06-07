@@ -1,17 +1,17 @@
 import { Directive, Input } from "@angular/core";
-import UIkit from "uikit";
+import type UIkitNS from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitToggle]",
 })
-export class ToggleDirective extends UIkitDirective<UIkit.UIkitToggleOptions | string, UIkit.UIkitToggleElement> {
+export class ToggleDirective extends UIkitDirective<UIkitNS.UIkitToggleOptions | string, UIkitNS.UIkitToggleElement> {
   @Input("uikitToggle")
-  public override options: string | UIkit.UIkitToggleOptions | null | undefined;
+  public override options: string | UIkitNS.UIkitToggleOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: string | UIkit.UIkitToggleOptions | null | undefined): UIkit.UIkitToggleElement {
+  protected override hookComponent(element: HTMLElement, options: string | UIkitNS.UIkitToggleOptions | null | undefined): UIkitNS.UIkitToggleElement {
     if (typeof options === "string") {
-      options = { connect: options } as any as UIkit.UIkitToggleOptions;
+      options = { connect: options } as any as UIkitNS.UIkitToggleOptions;
     }
 
     return UIkit.toggle(element, options ?? undefined);

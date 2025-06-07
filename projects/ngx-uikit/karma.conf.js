@@ -11,6 +11,12 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
     ],
+     files: [
+      // Load test setup before specs
+      { pattern: 'projects/ngx-uikit/src/test-setup.spec.ts', watched: false },
+      // Then load all spec files
+      { pattern: 'projects/ngx-uikit/src/**/*.spec.ts', watched: true }
+    ],
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here

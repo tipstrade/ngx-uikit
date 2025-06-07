@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import UIkit from "uikit";
+import type UIkitNS from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitUpload]",
 })
-export class UploadDirective extends UIkitDirective<UIkit.UIkitUploadOptions, any> {
+export class UploadDirective extends UIkitDirective<UIkitNS.UIkitUploadOptions, any> {
   @Input("uikitUpload")
-  public override options: UIkit.UIkitUploadOptions | null | undefined;
+  public override options: UIkitNS.UIkitUploadOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkit.UIkitUploadOptions | null | undefined): any {
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitUploadOptions | null | undefined): any {
     return UIkit.upload(element, options ?? undefined);
   }
 }

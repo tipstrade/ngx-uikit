@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import UIkit from "uikit";
+import type UIkitNS from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitHeightViewport]",
 })
-export class HeightViewportDirective extends UIkitDirective<UIkit.UIkitHeightViewportOptions, any> {
+export class HeightViewportDirective extends UIkitDirective<UIkitNS.UIkitHeightViewportOptions, any> {
   @Input("uikitHeightViewport")
-  public override options: UIkit.UIkitHeightViewportOptions | null | undefined;
+  public override options: UIkitNS.UIkitHeightViewportOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkit.UIkitHeightViewportOptions | null | undefined): any {
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitHeightViewportOptions | null | undefined): any {
     return UIkit.heightViewport(element, options ?? undefined);
   }
 }

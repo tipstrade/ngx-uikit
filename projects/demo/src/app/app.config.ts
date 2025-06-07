@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from "@angular/core";
 import { provideRouter, TitleStrategy } from "@angular/router";
 
-import { UIKIT_CONFIG, UIkitConfig } from "../../../ngx-uikit/src/public-api";
+import { UIKIT_CONFIG, UIkitConfig } from "ngx-uikit";
 import { routes } from "./app.routes";
 import { CustomTitleStrategy } from "./core/custom-title-strategy";
 

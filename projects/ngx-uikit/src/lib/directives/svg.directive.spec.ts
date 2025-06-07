@@ -1,8 +1,8 @@
-import UIkit from "uikit";
+import type UIkitNS from "uikit";
 import { DirectiveTestContext, testUIkitDirective } from "./_directive-test-helpers.spec";
 import { SvgDirective } from "./svg.directive";
 
-const BadSvgMock: UIkit.UIkitSvgOptions = {
+const BadSvgMock: UIkitNS.UIkitSvgOptions = {
   src: "https://non-existent-domain.zzz/foo.svg",
 };
 

@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import UIkit from "uikit";
+import type UIkitNS from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitNavbar]",
 })
-export class NavbarDirective extends UIkitDirective<UIkit.UIkitNavbarOptions, any> {
+export class NavbarDirective extends UIkitDirective<UIkitNS.UIkitNavbarOptions, any> {
   @Input("uikitNavbar")
-  public override options: UIkit.UIkitNavbarOptions | null | undefined;
+  public override options: UIkitNS.UIkitNavbarOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkit.UIkitNavbarOptions | null | undefined): any {
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitNavbarOptions | null | undefined): any {
     return UIkit.navbar(element, options ?? undefined);
   }
 }

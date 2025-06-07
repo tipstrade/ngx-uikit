@@ -26,11 +26,25 @@ testUIkitDirective({ name: "IconDirective", selector: "uikitIcon", type: IconDir
     expect(context.directiveInstance.options).toEqual(options);
   });
 
-  it("should emit an SVG", async () => {
+  it("should resolve an SVG", async () => {
     context.fixture.componentInstance.options = "facebook";
     context.fixture.detectChanges();
 
-    expect(context.directiveInstance.ref?.svg).toBeDefined();
-    await expectAsync(context.directiveInstance.ref?.svg).toBeResolved();
+    const svg = context.directiveInstance.ref?.svg;
+
+    expect(svg).toBeDefined();
+    await expectAsync(svg).toBeResolved();
+    await expectAsync(svg?.then(x => x instanceof SVGElement)).toBeResolvedTo(true);
+  });
+
+  it("should resolve and undefined svg", async () => {
+    context.fixture.componentInstance.options = "xxx-facebook";
+    context.fixture.detectChanges();
+
+    const svg = context.directiveInstance.ref?.svg;
+
+    expect(svg).toBeDefined();
+    await expectAsync(svg).toBeResolved();
+    await expectAsync(svg?.then(x => x === undefined)).toBeResolvedTo(true);
   });
 });
