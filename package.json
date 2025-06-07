@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4250",
+    "start": "ng serve demo --port 4250",
     "build": "ng build ngx-uikit",
     "watch": "ng build ngx-uikit --watch --configuration development",
     "lint": "eslint projects/ngx-uikit --ext .ts,.html",
@@ -19,7 +19,6 @@
     "@angular/router": "^20.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "uikit": "^3.23.9",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -43,6 +42,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^20.0.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.2",
+    "uikit": "^3.23.9"
   }
 }

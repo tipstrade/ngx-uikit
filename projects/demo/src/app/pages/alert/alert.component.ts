@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { AlertDirective } from "../../../../../ngx-uikit/src/public-api";
+import { AlertDirective } from "ngx-uikit";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 
 @Component({

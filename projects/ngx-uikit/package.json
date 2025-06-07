@@ -21,12 +21,18 @@
   "peerDependencies": {
     "@angular/common": ">17.0.0",
     "@angular/core": ">17.0.0",
-    "uikit": ">3.23.9"
+    "uikit": "^3.23.9"
+  },
+  "peerDependenciesMeta": {
+    "uikit": {
+      "optional": true
+    }
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "uikit": "^3.23.9",
     "@types/uikit": "^3.14.5"
   },
   "module": "./fesm2022/ngx-uikit.mjs",

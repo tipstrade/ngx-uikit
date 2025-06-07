@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { OffCanvasDirective } from "../../../../../ngx-uikit/src/public-api";
+import { OffCanvasDirective } from "ngx-uikit";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 import { MergePipe } from "../../pipes/merge-pipe";
 

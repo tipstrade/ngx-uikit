@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { CoverDirective } from "../../../../../ngx-uikit/src/public-api";
+import { CoverDirective } from "ngx-uikit";
 
 @Component({
   selector: "app-cover",

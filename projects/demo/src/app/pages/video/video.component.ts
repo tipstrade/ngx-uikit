@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { VideoDirective } from "../../../../../ngx-uikit/src/public-api";
+import { VideoDirective } from "ngx-uikit";
 
 @Component({
   selector: "app-video",

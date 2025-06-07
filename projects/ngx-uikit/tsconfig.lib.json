@@ -8,7 +8,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [
+      "uikit"
+    ]
   },
   "include": [
     "src/**/*.ts"

@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { Component, inject, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import UIkit from "uikit";
-import { AccordionDirective } from "../../../../../ngx-uikit/src/public-api";
+import { AccordionDirective } from "ngx-uikit";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 import { RequiredFormValues } from "../../core/helpers";
 

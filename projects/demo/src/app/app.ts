@@ -1,11 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { IconDirective } from "ngx-uikit";
 
 @Component({
   selector: "app-root",
   imports: [
     CommonModule, RouterModule,
+    IconDirective,
   ],
   templateUrl: "./app.html",
   styleUrl: "./app.scss",
