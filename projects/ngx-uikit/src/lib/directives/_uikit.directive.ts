@@ -1,6 +1,6 @@
 import { AfterViewInit, Directive, ElementRef, inject, OnChanges, OnDestroy, SimpleChanges } from "@angular/core";
 import { uikitDestroy } from "../helpers";
-import { UikitConfigService } from "../uikit-config";
+import { UikitConfigService } from "../uikit-config-service";
 
 @Directive()
 export abstract class UIkitDirective<TOptions, TElement> implements AfterViewInit, OnChanges, OnDestroy {
@@ -23,11 +23,11 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
   protected set ref(value: TElement | null | undefined) {
     // Ensure that the old ref is destroyed
     if (this._ref) {
-      this.config.log("Destroy ref", this.id);
+      this.config.log("Destroy ref", this.id, this.ref);
       uikitDestroy(this._ref);
     }
 
-    this.config.log("Set ref", this.id, this.ref ? "" : "initial");
+    this.config.log("Set ref", this.id, value, this.ref ? "" : "initial");
     this._ref = value;
   }
 
@@ -68,7 +68,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
       this.onDestroy();
     }
 
-    this.config.log("Destroyed ref", this.id, "final");
+    this.config.log("Destroyed ref", this.id, this.ref, "final");
     uikitDestroy(this.ref);
   }
 
