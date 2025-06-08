@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 
-import { UIKIT_CONFIG, UIkitConfig, UikitConfigService } from "./uikit-config";
+import { UIKIT_CONFIG, UIkitConfig, UikitConfigService } from "./uikit-config-service";
 
 const configureService = (config: UIkitConfig = {}): UikitConfigService => {
   return TestBed.configureTestingModule({
