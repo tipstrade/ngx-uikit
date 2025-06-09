@@ -23,11 +23,11 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
   protected set ref(value: TElement | null | undefined) {
     // Ensure that the old ref is destroyed
     if (this._ref) {
-      this.config.log("Destroy ref", this.id, this.ref);
+      this.log("setref", "Destroy", this.ref);
       uikitDestroy(this._ref);
     }
 
-    this.config.log("Set ref", this.id, value, this.ref ? "" : "initial");
+    this.log("setref", "Create", value, this.ref ? "" : "initial");
     this._ref = value;
   }
 
@@ -68,7 +68,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
       this.onDestroy();
     }
 
-    this.config.log("Destroyed ref", this.id, this.ref, "final");
+    this.log("ngOnDestroy", this.ref);
     uikitDestroy(this.ref);
   }
 
@@ -84,6 +84,10 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     }
 
     return options == null ? undefined : this.parseOptions(options);
+  }
+
+  protected log(mesage: string, ...args: unknown[]): void {
+    this.config.log(`UIkitDirective{${this.id}}: ${mesage}`, ...args);
   }
 
   // ========================
