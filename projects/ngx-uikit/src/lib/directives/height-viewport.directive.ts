@@ -7,13 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class HeightViewportDirective extends UIkitDirective<UIkitNS.UIkitHeightViewportOptions, any> {
   @Input("uikitHeightViewport")
-  public override options: UIkitNS.UIkitHeightViewportOptions | null | undefined;
+  public override options: UIkitNS.UIkitHeightViewportOptions | "" | null | undefined;
 
   protected override parseOptions(options: UIkitNS.UIkitHeightViewportOptions): (UIkitNS.UIkitHeightViewportOptions & object) | undefined {
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitHeightViewportOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitHeightViewportOptions | undefined, _isInitial?: boolean): any {
     return UIkit.heightViewport(element, options);
   }
 }

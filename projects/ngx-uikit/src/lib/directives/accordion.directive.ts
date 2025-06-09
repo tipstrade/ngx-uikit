@@ -7,13 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class AccordionDirective extends UIkitDirective<UIkitNS.UIkitAccordionOptions, UIkitNS.UIkitAccordionElement> {
   @Input("uikitAccordion")
-  public override options: UIkitNS.UIkitAccordionOptions | null | undefined;
+  public override options: UIkitNS.UIkitAccordionOptions | "" | null | undefined;
 
   protected override parseOptions(options: UIkitNS.UIkitAccordionOptions): (UIkitNS.UIkitAccordionOptions & object) | undefined {
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitAccordionOptions | undefined): UIkitNS.UIkitAccordionElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitAccordionOptions | undefined): UIkitNS.UIkitAccordionElement {
     return UIkit.accordion(element, options);
   }
 

@@ -17,7 +17,7 @@ export class OffCanvasDirective extends UIkitDirective<UIkitNS.UIkitOffcanvasOpt
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitOffcanvasOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitOffcanvasElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitOffcanvasOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitOffcanvasElement {
     return UIkit.offcanvas(element, options);
   }
 }

@@ -43,7 +43,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
 
   ngAfterViewInit(): void {
     if (!this.ref) {
-      this.ref = this.hookComponent(this.el.nativeElement, this.getOptions(), true);
+      this.ref = this.createComponent(this.el.nativeElement, this.getOptions(), true);
     }
 
     if (this.afterViewInit) {
@@ -59,7 +59,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     }
 
     if ("options" in changes) {
-      this.ref = this.hookComponent(this.el.nativeElement, this.getOptions());
+      this.ref = this.createComponent(this.el.nativeElement, this.getOptions());
     }
   }
 
@@ -90,12 +90,17 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
   // Abstract methods
   // ========================
 
+  /** Called in ngAfterViewInit after the ref has been set. */
   protected afterViewInit?(): void;
 
-  protected abstract hookComponent(element: HTMLElement, options: (TOptions & object) | undefined, _isInitial?: boolean): TElement;
+  protected abstract createComponent(element: HTMLElement, options: (TOptions & object) | undefined, _isInitial?: boolean): TElement;
 
+  /**
+   * Called in place of ngOnChanges if implemented.
+   */
   protected onChanges?(changes: SimpleChanges): void;
 
+  /** Called in ngOnDestroy, before the ref is destroyed. */
   protected onDestroy?(): void;
 
   protected abstract parseOptions(options: TOptions): (TOptions & object) | undefined;

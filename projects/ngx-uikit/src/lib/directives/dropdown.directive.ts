@@ -17,7 +17,7 @@ export class DropdownDirective extends UIkitDirective<UIkitNS.UIkitDropdownOptio
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitDropdownOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitDropdownElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitDropdownOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitDropdownElement {
     return UIkit.dropdown(element, options);
   }
 }

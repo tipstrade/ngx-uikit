@@ -40,7 +40,7 @@ export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, un
     imports: [type],
   })
   class TestHostComponent {
-    public options: TOptions | null | undefined;
+    public options: TOptions | "" | null | undefined;
   }
 
   const fixture = TestBed.configureTestingModule({
@@ -61,9 +61,9 @@ export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, un
   };
 };
 
-export const getHookComponentSpy = (directive: DirectiveWithRef<unknown, unknown>): jasmine.Spy => {
+export const getcreateComponentSpy = (directive: DirectiveWithRef<unknown, unknown>): jasmine.Spy => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return spyOn(directive as any, "hookComponent");
+  return spyOn(directive as any, "createComponent");
 };
 
 export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T> & { template: string }): void;

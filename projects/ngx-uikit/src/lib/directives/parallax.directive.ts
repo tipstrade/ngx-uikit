@@ -7,13 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class ParallaxDirective extends UIkitDirective<UIkitNS.UIkitParallaxOptions, any> {
   @Input("uikitParallax")
-  public override options: UIkitNS.UIkitParallaxOptions | null | undefined;
+  public override options: UIkitNS.UIkitParallaxOptions | "" | null | undefined;
 
   protected override parseOptions(options: UIkitNS.UIkitParallaxOptions): (UIkitNS.UIkitParallaxOptions & object) | undefined {
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitParallaxOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitParallaxOptions | undefined, _isInitial?: boolean): any {
     return UIkit.parallax(element, options);
   }
 }

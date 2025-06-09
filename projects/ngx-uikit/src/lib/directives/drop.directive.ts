@@ -17,7 +17,7 @@ export class DropDirective extends UIkitDirective<UIkitNS.UIkitDropOptions | str
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitDropOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitDropElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitDropOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitDropElement {
     return UIkit.drop(element, options);
   }
 }

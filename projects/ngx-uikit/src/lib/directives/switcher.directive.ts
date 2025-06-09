@@ -7,7 +7,7 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class SwitcherDirective extends UIkitDirective<UIkitNS.UIkitSwitcherOptions | string, UIkitNS.UIkitSwitcherElement> {
   @Input("uikitSwitcher")
-  public options: string | UIkitNS.UIkitSwitcherOptions | null | undefined;
+  public options: string | UIkitNS.UIkitSwitcherOptions | "" | null | undefined;
 
   protected override parseOptions(options: string | UIkitNS.UIkitSwitcherOptions): (UIkitNS.UIkitSwitcherOptions & object) | undefined {
     if (typeof options === "string") {
@@ -17,7 +17,7 @@ export class SwitcherDirective extends UIkitDirective<UIkitNS.UIkitSwitcherOptio
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSwitcherOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitSwitcherElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitSwitcherOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitSwitcherElement {
     return UIkit.switcher(element, options);
   }
 }

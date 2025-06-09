@@ -17,7 +17,7 @@ export class IconDirective extends UIkitDirective<UIkitNS.UIkitIconOptions | str
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitIconOptions | undefined, _isInitial?: boolean): { svg: Promise<any> } {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitIconOptions | undefined, _isInitial?: boolean): { svg: Promise<any> } {
     return UIkit.icon(element, options);
   }
 }

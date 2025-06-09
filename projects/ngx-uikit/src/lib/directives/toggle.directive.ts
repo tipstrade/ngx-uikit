@@ -7,7 +7,7 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class ToggleDirective extends UIkitDirective<UIkitNS.UIkitToggleOptions | string, UIkitNS.UIkitToggleElement> {
   @Input("uikitToggle")
-  public override options: string | UIkitNS.UIkitToggleOptions | null | undefined;
+  public override options: string | UIkitNS.UIkitToggleOptions | "" | null | undefined;
 
   protected override parseOptions(options: string | UIkitNS.UIkitToggleOptions): (UIkitNS.UIkitToggleOptions & object) | undefined {
     if (typeof options === "string") {
@@ -17,7 +17,7 @@ export class ToggleDirective extends UIkitDirective<UIkitNS.UIkitToggleOptions |
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitToggleOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitToggleElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitToggleOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitToggleElement {
     return UIkit.toggle(element, options);
   }
 }

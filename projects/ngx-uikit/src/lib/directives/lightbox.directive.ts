@@ -7,13 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class LightboxDirective extends UIkitDirective<UIkitNS.UIkitLightboxOptions, UIkitNS.UIkitLightboxElement> {
   @Input("uikitLightbox")
-  public override options: UIkitNS.UIkitLightboxOptions | null | undefined;
+  public override options: UIkitNS.UIkitLightboxOptions | "" | null | undefined;
 
   protected override parseOptions(options: UIkitNS.UIkitLightboxOptions): (UIkitNS.UIkitLightboxOptions & object) | undefined {
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitLightboxOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitLightboxElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitLightboxOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitLightboxElement {
     return UIkit.lightbox(element, options);
   }
 }

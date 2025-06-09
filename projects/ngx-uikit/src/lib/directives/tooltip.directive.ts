@@ -17,7 +17,7 @@ export class TooltipDirective extends UIkitDirective<UIkitNS.UIkitTooltipOptions
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitTooltipOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitTooltipElement {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitTooltipOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitTooltipElement {
     return UIkit.tooltip(element, options);
   }
 }

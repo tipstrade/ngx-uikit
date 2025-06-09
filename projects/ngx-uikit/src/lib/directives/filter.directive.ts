@@ -17,7 +17,7 @@ export class FilterDirective extends UIkitDirective<UIkitNS.UIkitFilterOptions |
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitFilterOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitFilterOptions | undefined, _isInitial?: boolean): any {
     return UIkit.filter(element, options);
   }
 }

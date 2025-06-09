@@ -17,7 +17,7 @@ export class ImageDirective extends UIkitDirective<UIkitNS.UIkitImageOptions | s
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitImageOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitImageOptions | undefined, _isInitial?: boolean): any {
     return (UIkit as any).img(element, options);
   }
 }

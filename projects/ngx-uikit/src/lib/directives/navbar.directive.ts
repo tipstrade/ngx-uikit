@@ -7,13 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class NavbarDirective extends UIkitDirective<UIkitNS.UIkitNavbarOptions, any> {
   @Input("uikitNavbar")
-  public override options: UIkitNS.UIkitNavbarOptions | null | undefined;
+  public override options: UIkitNS.UIkitNavbarOptions | "" | null | undefined;
 
   protected override parseOptions(options: UIkitNS.UIkitNavbarOptions): (UIkitNS.UIkitNavbarOptions & object) | undefined {
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitNavbarOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitNavbarOptions | undefined, _isInitial?: boolean): any {
     return UIkit.navbar(element, options);
   }
 }

@@ -7,13 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class FormCustomDirective extends UIkitDirective<UIkitNS.UIkitFormOptions, any> {
   @Input("uikitFormCustom")
-  public override options: UIkitNS.UIkitFormOptions | null | undefined;
+  public override options: UIkitNS.UIkitFormOptions | "" | null | undefined;
 
   protected override parseOptions(options: UIkitNS.UIkitFormOptions): (UIkitNS.UIkitFormOptions & object) | undefined {
     return options;
   }
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitFormOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitFormOptions | undefined, _isInitial?: boolean): any {
     return UIkit.formCustom(element, options);
   }
 }
