@@ -1,5 +1,4 @@
 import { TestBed } from "@angular/core/testing";
-
 import { UIKIT_CONFIG, UIkitConfig, UikitConfigService } from "./uikit-config-service";
 
 const configureService = (config: UIkitConfig = {}): UikitConfigService => {
@@ -19,11 +18,31 @@ describe("UikitConfigService", () => {
     expect(service).toBeTruthy();
   });
 
+  it("should load plugins provided", () => {
+    const pluginSpy = jasmine.createSpy();
+    const config: UIkitConfig = {
+      plugins: [pluginSpy],
+    };
+
+    configureService(config);
+
+    expect(pluginSpy).toHaveBeenCalledWith(UIkit);
+  });
+
   it("should get an id", () => {
     const service = configureService();
 
     expect(service.getId()).toBe(1);
     expect(service.getId()).toBe(2);
+  });
+
+  it ("should install a plugin", () => {
+    const service = configureService();
+    const pluginSpy = jasmine.createSpy();
+
+    service.loadPlugin(pluginSpy);
+
+    expect(pluginSpy).toHaveBeenCalledWith(UIkit);
   });
 
   it("should log to console if enabled", () => {
