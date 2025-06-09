@@ -9,7 +9,11 @@ export class SortableDirective extends UIkitDirective<UIkitNS.UIkitSortableOptio
   @Input("uikitSortable")
   public override options: UIkitNS.UIkitSortableOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSortableOptions | null | undefined): any {
-    return UIkit.sortable(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitSortableOptions): (UIkitNS.UIkitSortableOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSortableOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.sortable(element, options);
   }
 }

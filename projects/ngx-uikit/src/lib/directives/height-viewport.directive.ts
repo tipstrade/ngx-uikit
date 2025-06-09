@@ -9,7 +9,11 @@ export class HeightViewportDirective extends UIkitDirective<UIkitNS.UIkitHeightV
   @Input("uikitHeightViewport")
   public override options: UIkitNS.UIkitHeightViewportOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitHeightViewportOptions | null | undefined): any {
-    return UIkit.heightViewport(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitHeightViewportOptions): (UIkitNS.UIkitHeightViewportOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitHeightViewportOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.heightViewport(element, options);
   }
 }

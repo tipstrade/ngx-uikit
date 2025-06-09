@@ -9,11 +9,15 @@ export class IconDirective extends UIkitDirective<UIkitNS.UIkitIconOptions | str
   @Input("uikitIcon")
   public override options: UIkitNS.UIkitIconOptions | string | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitIconOptions | string | null | undefined): { svg: Promise<any> } {
+  protected override parseOptions(options: string | UIkitNS.UIkitIconOptions): (UIkitNS.UIkitIconOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { icon: options };
+      return { icon: options };
     }
 
-    return UIkit.icon(element, options ?? undefined);
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitIconOptions | undefined, _isInitial?: boolean): { svg: Promise<any> } {
+    return UIkit.icon(element, options);
   }
 }

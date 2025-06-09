@@ -9,7 +9,11 @@ export class CoverDirective extends UIkitDirective<UIkitNS.UIkitCoverOptions, an
   @Input("uikitCover")
   public override options: UIkitNS.UIkitCoverOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitCoverOptions | null | undefined): any {
-    return UIkit.cover(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitCoverOptions): (UIkitNS.UIkitCoverOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitCoverOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.cover(element, options);
   }
 }

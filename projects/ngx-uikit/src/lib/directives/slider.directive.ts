@@ -9,7 +9,11 @@ export class SliderDirective extends UIkitDirective<UIkitNS.UIkitSliderOptions, 
   @Input("uikitSlider")
   public override options: UIkitNS.UIkitSliderOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSliderOptions | null | undefined): UIkitNS.UIkitSliderElement {
-    return UIkit.slider(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitSliderOptions): (UIkitNS.UIkitSliderOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSliderOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitSliderElement {
+    return UIkit.slider(element, options);
   }
 }

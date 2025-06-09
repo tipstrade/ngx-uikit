@@ -6,4 +6,9 @@ const template = `<div class="uk-inline">
     <div class="uk-card uk-card-body uk-card-default" [uikitDrop]>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
 </div>`;
 
-testUIkitDirective({ name: "DropDirective", template, type: DropDirective });
+testUIkitDirective({
+  name: "DropDirective",
+  template,
+  type: DropDirective,
+  expectedOptions: [[{}, {}], ["top-left", { pos: "top-left" }]],
+});

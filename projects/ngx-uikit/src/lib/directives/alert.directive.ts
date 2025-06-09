@@ -9,7 +9,11 @@ export class AlertDirective extends UIkitDirective<UIkitNS.UIkitAlertOptions, UI
   @Input("uikitAlert")
   public override options: UIkitNS.UIkitAlertOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitAlertOptions | null): UIkitNS.UIkitAlertElement {
-    return UIkit.alert(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitAlertOptions): (UIkitNS.UIkitAlertOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitAlertOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitAlertElement {
+    return UIkit.alert(element, options);
   }
 }

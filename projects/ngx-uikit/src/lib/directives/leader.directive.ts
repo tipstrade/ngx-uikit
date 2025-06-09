@@ -9,7 +9,11 @@ export class LeaderDirective extends UIkitDirective<UIkitNS.UIkitLeaderOptions, 
   @Input("uikitLeader")
   public override options: UIkitNS.UIkitLeaderOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitLeaderOptions | null | undefined): any {
-    return UIkit.leader(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitLeaderOptions): (UIkitNS.UIkitLeaderOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitLeaderOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.leader(element, options);
   }
 }

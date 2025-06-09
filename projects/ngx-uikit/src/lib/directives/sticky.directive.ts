@@ -9,7 +9,11 @@ export class StickyDirective extends UIkitDirective<UIkitNS.UIkitStickyOptions, 
   @Input("uikitSticky")
   public override options: UIkitNS.UIkitStickyOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitStickyOptions | null | undefined): any {
-    return UIkit.sticky(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitStickyOptions): (UIkitNS.UIkitStickyOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitStickyOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.sticky(element, options);
   }
 }

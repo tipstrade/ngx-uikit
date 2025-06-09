@@ -9,7 +9,11 @@ export class LightboxDirective extends UIkitDirective<UIkitNS.UIkitLightboxOptio
   @Input("uikitLightbox")
   public override options: UIkitNS.UIkitLightboxOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitLightboxOptions | null | undefined): UIkitNS.UIkitLightboxElement {
-    return UIkit.lightbox(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitLightboxOptions): (UIkitNS.UIkitLightboxOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitLightboxOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitLightboxElement {
+    return UIkit.lightbox(element, options);
   }
 }

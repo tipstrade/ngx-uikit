@@ -9,7 +9,11 @@ export class ScrollspyNavDirective extends UIkitDirective<UIkitNS.UIkitScrollspy
   @Input("uikitScrollspyNav")
   public override options: UIkitNS.UIkitScrollspyNavOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitScrollspyNavOptions | null | undefined): any {
-    return UIkit.scrollspyNav(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitScrollspyNavOptions): (UIkitNS.UIkitScrollspyNavOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitScrollspyNavOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.scrollspyNav(element, options);
   }
 }

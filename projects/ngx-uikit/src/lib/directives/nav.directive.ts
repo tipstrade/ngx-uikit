@@ -9,7 +9,11 @@ export class NavDirective extends UIkitDirective<UIkitNS.UIkitNavOptions, UIkitN
   @Input("uikitNav")
   public override options: UIkitNS.UIkitNavOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitNavOptions | null | undefined): UIkitNS.UIkitNavElement {
-    return UIkit.nav(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitNavOptions): (UIkitNS.UIkitNavOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitNavOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitNavElement {
+    return UIkit.nav(element, options);
   }
 }

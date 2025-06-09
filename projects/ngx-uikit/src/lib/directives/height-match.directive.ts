@@ -9,7 +9,11 @@ export class HeightMatchDirective extends UIkitDirective<UIkitNS.UIkitHeightMatc
   @Input("uikitHeightMatch")
   public override options: UIkitNS.UIkitHeightMatchOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitHeightMatchOptions | null | undefined): any {
-    return UIkit.heightMatch(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitHeightMatchOptions): (UIkitNS.UIkitHeightMatchOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitHeightMatchOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.heightMatch(element, options);
   }
 }

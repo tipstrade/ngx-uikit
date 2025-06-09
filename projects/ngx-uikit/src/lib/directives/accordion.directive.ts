@@ -9,8 +9,12 @@ export class AccordionDirective extends UIkitDirective<UIkitNS.UIkitAccordionOpt
   @Input("uikitAccordion")
   public override options: UIkitNS.UIkitAccordionOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitAccordionOptions | null | undefined): UIkitNS.UIkitAccordionElement {
-    return UIkit.accordion(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitAccordionOptions): (UIkitNS.UIkitAccordionOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitAccordionOptions | undefined): UIkitNS.UIkitAccordionElement {
+    return UIkit.accordion(element, options);
   }
 
   public collapseAll(animate = true): void {

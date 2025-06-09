@@ -12,6 +12,8 @@ interface TestConfig<T extends UIkitDirective<TOptions, TElement>, TOptions = un
   selector?: string
   template?: string
   defaultOptions?: TOptions
+  expectedOptions?: [TOptions | string | "" | null | undefined, TOptions & object][]
+  otherTests?: (getContext: () => DirectiveTestContext<T>) => void
 }
 
 export interface DirectiveTestContext<T extends DirectiveWithRef<unknown, unknown>> {
@@ -64,9 +66,13 @@ export const getHookComponentSpy = (directive: DirectiveWithRef<unknown, unknown
   return spyOn(directive as any, "hookComponent");
 };
 
-export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T> & { template: string }, otherTests?: (getContext: () => DirectiveTestContext<T>) => void): void;
-export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T> & { selector: string }, otherTests?: (getContext: () => DirectiveTestContext<T>) => void): void;
-export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T>, otherTests?: (getContext: () => DirectiveTestContext<T>) => void): void {
+export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T> & { template: string }): void;
+export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T> & { selector: string }): void;
+export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>(config: TestConfig<T>): void {
+  if (!config.name) {
+    throw new Error("Directive test needs a name");
+  }
+
   describe(config.name, () => {
     let context: DirectiveTestContext<T>;
 
@@ -96,11 +102,19 @@ export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>
       expect(context.directiveInstance.ref).toBeTruthy();
     });
 
-    it("should handle undefined options", () => {
-      context.fixture.componentInstance.options = undefined;
-      context.fixture.detectChanges();
+    it ("should expect getOptions to return correctly", () => {
+      const expectedOptions = [
+        [null, undefined],
+        [undefined, undefined],
+        ["", undefined],
+        [{}, {}],
+        ...config.expectedOptions ?? [],
+      ];
 
-      expect(context.directiveInstance.options).toBeUndefined();
+      expectedOptions.forEach(([options, expected]) => {
+        context.directiveInstance.options = options;
+        expect<unknown>(context.directiveInstance.getOptions()).toEqual(expected);
+      });
     });
 
     it("should call ref.$destroy() on ngOnDestroy", () => {
@@ -110,8 +124,8 @@ export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>
       expect(destroySpy).toHaveBeenCalled();
     });
 
-    if (otherTests) {
-      otherTests(() => context);
+    if (config.otherTests) {
+      config.otherTests(() => context);
     }
   });
 };

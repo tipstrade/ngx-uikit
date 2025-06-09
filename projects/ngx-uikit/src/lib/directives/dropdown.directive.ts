@@ -9,11 +9,15 @@ export class DropdownDirective extends UIkitDirective<UIkitNS.UIkitDropdownOptio
   @Input("uikitDropdown")
   public override options: UIkitNS.UIkitDropdownOptions | string | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitDropdownOptions | string | null | undefined): UIkitNS.UIkitDropdownElement {
+  protected override parseOptions(options: string | UIkitNS.UIkitDropdownOptions): (UIkitNS.UIkitDropdownOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { pos: options || undefined };
+      return { pos: options };
     }
 
-    return UIkit.dropdown(element, options ?? undefined);
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitDropdownOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitDropdownElement {
+    return UIkit.dropdown(element, options);
   }
 }

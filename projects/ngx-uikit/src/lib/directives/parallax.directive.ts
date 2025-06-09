@@ -9,7 +9,11 @@ export class ParallaxDirective extends UIkitDirective<UIkitNS.UIkitParallaxOptio
   @Input("uikitParallax")
   public override options: UIkitNS.UIkitParallaxOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitParallaxOptions | null | undefined): any {
-    return UIkit.parallax(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitParallaxOptions): (UIkitNS.UIkitParallaxOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitParallaxOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.parallax(element, options);
   }
 }

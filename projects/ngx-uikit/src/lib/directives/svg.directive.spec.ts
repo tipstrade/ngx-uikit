@@ -3,27 +3,25 @@ import { DirectiveTestContext, testUIkitDirective } from "./_directive-test-help
 import { SvgDirective } from "./svg.directive";
 
 const BadSvgMock: UIkitNS.UIkitSvgOptions = {
-  src: "https://non-existent-domain.zzz/foo.svg",
+  dataSrc: "https://non-existent-domain.zzz/foo.svg",
 };
 
-testUIkitDirective({ name: "SvgDirective", template: "<img [uikitSvg]=\"options\">", type: SvgDirective }, (getContext) => {
-  let context: DirectiveTestContext<SvgDirective>;
+testUIkitDirective({
+  name: "SvgDirective",
+  template: "<img [uikitSvg]=\"options\">", type: SvgDirective,
+  expectedOptions: [[BadSvgMock, BadSvgMock]],
+  otherTests: (getContext) => {
+    let context: DirectiveTestContext<SvgDirective>;
 
-  beforeEach(() => {
-    context = getContext();
-  });
+    beforeEach(() => {
+      context = getContext();
+    });
 
-  it("should handle complex options", () => {
-    context.fixture.componentInstance.options = BadSvgMock;
-    context.fixture.detectChanges();
+    xit("should emit an SVG", async () => {
+      context.fixture.componentInstance.options = BadSvgMock;
+      context.fixture.detectChanges();
 
-    expect(context.directiveInstance.options).toEqual(BadSvgMock);
-  });
-
-  xit("should emit an SVG", async () => {
-    context.fixture.componentInstance.options = BadSvgMock;
-    context.fixture.detectChanges();
-
-    await expectAsync(context.directiveInstance.ref?.svg).toBeRejected();
-  });
+      await expectAsync(context.directiveInstance.ref?.svg).toBeRejected();
+    });
+  },
 });

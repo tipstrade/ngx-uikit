@@ -9,7 +9,11 @@ export class FormCustomDirective extends UIkitDirective<UIkitNS.UIkitFormOptions
   @Input("uikitFormCustom")
   public override options: UIkitNS.UIkitFormOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitFormOptions | null | undefined): any {
-    return UIkit.formCustom(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitFormOptions): (UIkitNS.UIkitFormOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitFormOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.formCustom(element, options);
   }
 }

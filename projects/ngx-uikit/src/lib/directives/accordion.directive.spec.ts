@@ -22,20 +22,25 @@ const template = `<ul [uikitAccordion]="options">
     </li>
 </ul>`;
 
-testUIkitDirective({ name: "AccordionDirective", template, type: AccordionDirective }, (getContext) => {
-  let context: DirectiveTestContext<AccordionDirective>;
+testUIkitDirective({
+  name: "AccordionDirective",
+  template, type: AccordionDirective,
 
-  beforeEach(() => {
-    context = getContext();
-  });
+  otherTests: (getContext) => {
+    let context: DirectiveTestContext<AccordionDirective>;
 
-  it("should collapse all children", () => {
-    context.directiveInstance.collapseAll();
-    context.fixture.detectChanges();
+    beforeEach(() => {
+      context = getContext();
+    });
 
-    const items = (context.directiveInstance.ref as any).items as HTMLElement[];
-    const allCollapsed = items.every(x => !x.classList.contains("uk-open"));
+    it("should collapse all children", () => {
+      context.directiveInstance.collapseAll();
+      context.fixture.detectChanges();
 
-    expect(allCollapsed).toBeTrue();
-  });
+      const items = (context.directiveInstance.ref as any).items as HTMLElement[];
+      const allCollapsed = items.every(x => !x.classList.contains("uk-open"));
+
+      expect(allCollapsed).toBeTrue();
+    });
+  },
 });

@@ -5,24 +5,28 @@ import { UIkitDirective } from "./_uikit.directive";
 @Directive({
   selector: "[uikitTest]",
 })
-class TestDirective extends UIkitDirective<number, object> {
+class TestDirective extends UIkitDirective<{ target: string }, object> {
   @Input("uikitTest")
-  public override options: number | null | undefined;
+  public override options: { target: string } | null | undefined;
 
   protected override afterViewInit(): void {
     // Noop
   }
 
+  protected override hookComponent(_element: HTMLElement, _options: { target: string } | undefined, _isInitial?: boolean): object {
+    return {};
+  }
+
   protected override onChanges(_changes: SimpleChanges): void {
-    this.ref = this.hookComponent(this.el.nativeElement, this.options);
+    this.ref = this.hookComponent(this.el.nativeElement, this.getOptions());
   }
 
   protected override onDestroy(): void {
     // Noop
   }
 
-  protected override hookComponent(_element: HTMLElement, _options: number | null | undefined, _isInitial?: boolean): object {
-    return {};
+  protected override parseOptions(options: { target: string }): ({ target: string } & object) | undefined {
+    return options;
   }
 }
 

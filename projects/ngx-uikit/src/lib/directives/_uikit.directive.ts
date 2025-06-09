@@ -35,7 +35,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     return this._ref;
   }
 
-  public abstract options: TOptions | null | undefined;
+  public abstract options: TOptions | "" | null | undefined;
 
   // ========================
   // Lifecycle
@@ -43,7 +43,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
 
   ngAfterViewInit(): void {
     if (!this.ref) {
-      this.ref = this.hookComponent(this.el.nativeElement, this.options, true);
+      this.ref = this.hookComponent(this.el.nativeElement, this.getOptions(), true);
     }
 
     if (this.afterViewInit) {
@@ -59,7 +59,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     }
 
     if ("options" in changes) {
-      this.ref = this.hookComponent(this.el.nativeElement, this.options);
+      this.ref = this.hookComponent(this.el.nativeElement, this.getOptions());
     }
   }
 
@@ -73,16 +73,30 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
   }
 
   // ========================
+  // Methods
+  // ========================
+
+  public getOptions(): (TOptions & object) | undefined {
+    const { options } = this;
+
+    if (options === "") {
+      return undefined;
+    }
+
+    return options == null ? undefined : this.parseOptions(options);
+  }
+
+  // ========================
   // Abstract methods
   // ========================
 
   protected afterViewInit?(): void;
 
-  protected createComponent?(element: HTMLElement, options: TOptions | null | undefined, isInitial?: boolean): TElement;
+  protected abstract hookComponent(element: HTMLElement, options: (TOptions & object) | undefined, _isInitial?: boolean): TElement;
 
   protected onChanges?(changes: SimpleChanges): void;
 
   protected onDestroy?(): void;
 
-  protected abstract hookComponent(element: HTMLElement, options: TOptions | null | undefined, isInitial?: boolean): TElement;
+  protected abstract parseOptions(options: TOptions): (TOptions & object) | undefined;
 }

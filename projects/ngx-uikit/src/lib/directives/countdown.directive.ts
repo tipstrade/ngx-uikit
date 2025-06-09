@@ -9,7 +9,11 @@ export class CountdownDirective extends UIkitDirective<UIkitNS.UIkitCountdownOpt
   @Input("uikitCountdown")
   public override options: UIkitNS.UIkitCountdownOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitCountdownOptions | null | undefined): UIkitNS.UIkitCountdownElement {
-    return UIkit.countdown(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitCountdownOptions): (UIkitNS.UIkitCountdownOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitCountdownOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitCountdownElement {
+    return UIkit.countdown(element, options);
   }
 }

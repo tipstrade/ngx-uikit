@@ -9,7 +9,11 @@ export class GridDirective extends UIkitDirective<UIkitNS.UIkitGridOptions, any>
   @Input("uikitGrid")
   public override options: UIkitNS.UIkitGridOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitGridOptions | null | undefined): any {
-    return UIkit.grid(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitGridOptions): (UIkitNS.UIkitGridOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitGridOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.grid(element, options);
   }
 }

@@ -9,7 +9,11 @@ export class ScrollDirective extends UIkitDirective<UIkitNS.UIkitScrollOptions, 
   @Input("uikitScroll")
   public override options: UIkitNS.UIkitScrollOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitScrollOptions | null | undefined): UIkitNS.UIkitScrollElement {
-    return UIkit.scroll(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitScrollOptions): (UIkitNS.UIkitScrollOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitScrollOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitScrollElement {
+    return UIkit.scroll(element, options);
   }
 }

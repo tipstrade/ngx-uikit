@@ -9,11 +9,15 @@ export class ScrollspyDirective extends UIkitDirective<UIkitNS.UIkitScrollspyOpt
   @Input("uikitScrollspy")
   public override options: string | UIkitNS.UIkitScrollspyOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: string | UIkitNS.UIkitScrollspyOptions | null | undefined): any {
+  protected override parseOptions(options: string | UIkitNS.UIkitScrollspyOptions): (UIkitNS.UIkitScrollspyOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { cls: options };
+      return { cls: options };
     }
 
-    return UIkit.scrollspy(element, options ?? undefined);
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitScrollspyOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.scrollspy(element, options);
   }
 }

@@ -9,7 +9,11 @@ export class SvgDirective extends UIkitDirective<UIkitNS.UIkitSvgOptions, { svg:
   @Input("uikitSvg")
   public override options: UIkitNS.UIkitSvgOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSvgOptions | null | undefined): { svg: Promise<any> } {
-    return UIkit.svg(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitSvgOptions): (UIkitNS.UIkitSvgOptions & object) | undefined {
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSvgOptions | undefined, _isInitial?: boolean): { svg: Promise<any> } {
+    return UIkit.svg(element, options);
   }
 }

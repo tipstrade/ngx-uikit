@@ -9,11 +9,15 @@ export class SwitcherDirective extends UIkitDirective<UIkitNS.UIkitSwitcherOptio
   @Input("uikitSwitcher")
   public options: string | UIkitNS.UIkitSwitcherOptions | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSwitcherOptions | string | null | undefined): UIkitNS.UIkitSwitcherElement {
+  protected override parseOptions(options: string | UIkitNS.UIkitSwitcherOptions): (UIkitNS.UIkitSwitcherOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { connect: options };
+      return { connect: options };
     }
 
-    return UIkit.switcher(element, options ?? undefined);
+    return options;
+  }
+
+  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitSwitcherOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitSwitcherElement {
+    return UIkit.switcher(element, options);
   }
 }
