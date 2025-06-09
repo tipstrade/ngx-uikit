@@ -11,24 +11,29 @@ const template = `<div class="uk-inline">
     <div [uikitDropdown]="options">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 </div>`;
 
-testUIkitDirective({ name: "DropdownDirective", template, type: DropdownDirective }, (getContext) => {
-  let context: DirectiveTestContext<DropdownDirective>;
+testUIkitDirective({
+  name: "DropdownDirective",
+  template, type: DropdownDirective,
+  expectedOptions: [[{}, {}], ["top-left", { pos: "top-left" }]],
+  otherTests: (getContext) => {
+    let context: DirectiveTestContext<DropdownDirective>;
 
-  beforeEach(() => {
-    context = getContext();
-  });
+    beforeEach(() => {
+      context = getContext();
+    });
 
-  it("should handle empty string options", () => {
-    context.fixture.componentInstance.options = "";
-    context.fixture.detectChanges();
+    it("should handle empty string options", () => {
+      context.fixture.componentInstance.options = "";
+      context.fixture.detectChanges();
 
-    expect(context.directiveInstance.options).toEqual("");
-  });
+      expect(context.directiveInstance.options).toEqual("");
+    });
 
-  it("should handle string options", () => {
-    context.fixture.componentInstance.options = "abc";
-    context.fixture.detectChanges();
+    it("should handle string options", () => {
+      context.fixture.componentInstance.options = "abc";
+      context.fixture.detectChanges();
 
-    expect(context.directiveInstance.options).toEqual("abc");
-  });
+      expect(context.directiveInstance.options).toEqual("abc");
+    });
+  },
 });

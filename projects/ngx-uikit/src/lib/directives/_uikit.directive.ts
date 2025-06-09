@@ -35,7 +35,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     return this._ref;
   }
 
-  public abstract options: TOptions | null | undefined;
+  public abstract options: TOptions | "" | null | undefined;
 
   // ========================
   // Lifecycle
@@ -43,7 +43,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
 
   ngAfterViewInit(): void {
     if (!this.ref) {
-      this.ref = this.hookComponent(this.el.nativeElement, this.options, true);
+      this.ref = this.createComponent(this.el.nativeElement, this.getOptions(), true);
     }
 
     if (this.afterViewInit) {
@@ -59,7 +59,7 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
     }
 
     if ("options" in changes) {
-      this.ref = this.hookComponent(this.el.nativeElement, this.options);
+      this.ref = this.createComponent(this.el.nativeElement, this.getOptions());
     }
   }
 
@@ -73,16 +73,35 @@ export abstract class UIkitDirective<TOptions, TElement> implements AfterViewIni
   }
 
   // ========================
+  // Methods
+  // ========================
+
+  public getOptions(): (TOptions & object) | undefined {
+    const { options } = this;
+
+    if (options === "") {
+      return undefined;
+    }
+
+    return options == null ? undefined : this.parseOptions(options);
+  }
+
+  // ========================
   // Abstract methods
   // ========================
 
+  /** Called in ngAfterViewInit after the ref has been set. */
   protected afterViewInit?(): void;
 
-  protected createComponent?(element: HTMLElement, options: TOptions | null | undefined, isInitial?: boolean): TElement;
+  protected abstract createComponent(element: HTMLElement, options: (TOptions & object) | undefined, _isInitial?: boolean): TElement;
 
+  /**
+   * Called in place of ngOnChanges if implemented.
+   */
   protected onChanges?(changes: SimpleChanges): void;
 
+  /** Called in ngOnDestroy, before the ref is destroyed. */
   protected onDestroy?(): void;
 
-  protected abstract hookComponent(element: HTMLElement, options: TOptions | null | undefined, isInitial?: boolean): TElement;
+  protected abstract parseOptions(options: TOptions): (TOptions & object) | undefined;
 }

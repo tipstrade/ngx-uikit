@@ -7,9 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class UploadDirective extends UIkitDirective<UIkitNS.UIkitUploadOptions, any> {
   @Input("uikitUpload")
-  public override options: UIkitNS.UIkitUploadOptions | null | undefined;
+  public override options: UIkitNS.UIkitUploadOptions | "" | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitUploadOptions | null | undefined): any {
-    return UIkit.upload(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitUploadOptions): (UIkitNS.UIkitUploadOptions & object) | undefined {
+    return options;
+  }
+
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitUploadOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.upload(element, options);
   }
 }

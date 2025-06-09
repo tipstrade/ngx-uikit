@@ -9,11 +9,15 @@ export class ImageDirective extends UIkitDirective<UIkitNS.UIkitImageOptions | s
   @Input("uikitImage")
   public override options: UIkitNS.UIkitImageOptions | string | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitImageOptions | string | null | undefined): any {
+  protected override parseOptions(options: string | UIkitNS.UIkitImageOptions): (UIkitNS.UIkitImageOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { dataSrc: options };
+      return { dataSrc: options };
     }
 
-    return (UIkit as any).img(element, options ?? undefined);
+    return options;
+  }
+
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitImageOptions | undefined, _isInitial?: boolean): any {
+    return (UIkit as any).img(element, options);
   }
 }

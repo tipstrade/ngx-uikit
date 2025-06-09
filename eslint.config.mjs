@@ -47,7 +47,8 @@ export default [
           imports: 'always-multiline',   
           exports: 'always-multiline',
           functions: 'always-multiline'
-       }]
+       }],
+       "@stylistic/brace-style": ["error", "1tbs", { "allowSingleLine": true }]
     }
   },
   {

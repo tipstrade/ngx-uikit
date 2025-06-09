@@ -9,11 +9,15 @@ export class FilterDirective extends UIkitDirective<UIkitNS.UIkitFilterOptions |
   @Input("uikitFilter")
   public override options: UIkitNS.UIkitFilterOptions | string | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitFilterOptions | string | null | undefined): any {
+  protected override parseOptions(options: string | UIkitNS.UIkitFilterOptions): (UIkitNS.UIkitFilterOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { target: options };
+      return { target: options };
     }
 
-    return UIkit.filter(element, options ?? undefined);
+    return options;
+  }
+
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitFilterOptions | undefined, _isInitial?: boolean): any {
+    return UIkit.filter(element, options);
   }
 }

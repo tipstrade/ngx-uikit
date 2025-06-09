@@ -7,9 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class AlertDirective extends UIkitDirective<UIkitNS.UIkitAlertOptions, UIkitNS.UIkitAlertElement> {
   @Input("uikitAlert")
-  public override options: UIkitNS.UIkitAlertOptions | null | undefined;
+  public override options: UIkitNS.UIkitAlertOptions | "" | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitAlertOptions | null): UIkitNS.UIkitAlertElement {
-    return UIkit.alert(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitAlertOptions): (UIkitNS.UIkitAlertOptions & object) | undefined {
+    return options;
+  }
+
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitAlertOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitAlertElement {
+    return UIkit.alert(element, options);
   }
 }

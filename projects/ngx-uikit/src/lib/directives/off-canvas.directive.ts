@@ -9,11 +9,15 @@ export class OffCanvasDirective extends UIkitDirective<UIkitNS.UIkitOffcanvasOpt
   @Input("uikitOffCanvas")
   public override options: UIkitNS.UIkitOffcanvasOptions | string | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitOffcanvasOptions | string | null | undefined): UIkitNS.UIkitOffcanvasElement {
+  protected override parseOptions(options: string | UIkitNS.UIkitOffcanvasOptions): (UIkitNS.UIkitOffcanvasOptions & object) | undefined {
     if (typeof options === "string") {
-      options = { mode: options };
+      return { mode: options };
     }
 
-    return UIkit.offcanvas(element, options ?? undefined);
+    return options;
+  }
+
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitOffcanvasOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitOffcanvasElement {
+    return UIkit.offcanvas(element, options);
   }
 }

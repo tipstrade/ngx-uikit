@@ -7,9 +7,13 @@ import { UIkitDirective } from "./_uikit.directive";
 })
 export class ModalDirective extends UIkitDirective<UIkitNS.UIkitModalOptions, UIkitNS.UIkitModalElement> {
   @Input("uikitModal")
-  public override options: UIkitNS.UIkitModalOptions | null | undefined;
+  public override options: UIkitNS.UIkitModalOptions | "" | null | undefined;
 
-  protected override hookComponent(element: HTMLElement, options: UIkitNS.UIkitModalOptions | null | undefined): UIkitNS.UIkitModalElement {
-    return UIkit.modal(element, options ?? undefined);
+  protected override parseOptions(options: UIkitNS.UIkitModalOptions): (UIkitNS.UIkitModalOptions & object) | undefined {
+    return options;
+  }
+
+  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitModalOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitModalElement {
+    return UIkit.modal(element, options);
   }
 }
