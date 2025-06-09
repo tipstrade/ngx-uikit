@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-image',
+  selector: "app-image",
   imports: [],
-  templateUrl: './image.component.html',
-  styleUrl: './image.component.scss'
+  templateUrl: "./image.component.html",
+  styleUrl: "./image.component.scss",
 })
 export class ImageComponent {
 
