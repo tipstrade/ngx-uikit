@@ -5,5 +5,5 @@ testUIkitDirective({
   name: "HeightMatchDirective",
   selector: "uikitHeightMatch",
   type: HeightMatchDirective,
-
+  expectedOptions: [[".my-class", { target: ".my-class" }]],
 });

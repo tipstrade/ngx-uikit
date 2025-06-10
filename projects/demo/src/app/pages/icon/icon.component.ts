@@ -1,9 +1,9 @@
+import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { IconDirective } from "ngx-uikit";
 
 @Component({
   selector: "app-icon",
-  imports: [IconDirective],
+  imports: [CommonModule],
   templateUrl: "./icon.component.html",
   styleUrl: "./icon.component.scss",
 })
