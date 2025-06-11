@@ -13,7 +13,7 @@
         <li class="uk-flex">
           <a class="header-button" href="https://getuikit.com/docs/introduction" target="_blank"
             style="color: white;"><span uikitIcon="link-external"></span> Full Documentation</a>
-          <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon uk-margin-medium-left"
+          <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon uk-margin-small-left"
             uk-navbar-toggle-icon href="#offcanvas" uk-toggle aria-label="Open menu" role="button" aria-expanded="false"
             style="color: white;"></a>
         </li>
@@ -46,7 +46,7 @@
   <div class="uk-offcanvas-bar uk-offcanvas-bar-light">
     <button class="uk-offcanvas-close" type="button" uk-close></button>
     <h3>Documentation</h3>
-    <ul class="uk-nav uk-nav-default tm-nav">
+    <ul class="uk-nav uk-nav-default tm-nav uk-margin-medium-left">
       @for (item of components; track $index) {
       <li routerLinkActive="uk-active">
         <a [routerLink]="item">{{item | titlecase}}</a>
