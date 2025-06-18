@@ -2,10 +2,11 @@ import { CommonModule } from "@angular/common";
 import { Component, ViewChild } from "@angular/core";
 import { AccordionDirective } from "ngx-uikit";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
+import { DemoTitleComponent } from "../../components/demo-title/demo-title.component";
 
 @Component({
   selector: "app-accordion",
-  imports: [CommonModule, AccordionDirective, OptionsComponent],
+  imports: [CommonModule, AccordionDirective, OptionsComponent, DemoTitleComponent],
   templateUrl: "./accordion.component.html",
   styleUrl: "./accordion.component.scss",
 })

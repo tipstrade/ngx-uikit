@@ -1,12 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { DropdownDirective } from "ngx-uikit";
+import { DemoTitleComponent } from "../../components/demo-title/demo-title.component";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 import { MergePipe } from "../../pipes/merge-pipe";
 
 @Component({
   selector: "app-dropdown",
-  imports: [CommonModule, OptionsComponent, MergePipe, DropdownDirective],
+  imports: [CommonModule, OptionsComponent, MergePipe, DropdownDirective, DemoTitleComponent],
   templateUrl: "./dropdown.component.html",
   styleUrl: "./dropdown.component.scss",
 })

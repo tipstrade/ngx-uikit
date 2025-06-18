@@ -1,12 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FilterDirective } from "ngx-uikit";
+import { DemoTitleComponent } from "../../components/demo-title/demo-title.component";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 import { MergePipe } from "../../pipes/merge-pipe";
 
 @Component({
   selector: "app-filter",
-  imports: [CommonModule, OptionsComponent, MergePipe, FilterDirective],
+  imports: [CommonModule, OptionsComponent, MergePipe, FilterDirective, DemoTitleComponent],
   templateUrl: "./filter.component.html",
   styleUrl: "./filter.component.scss",
 })

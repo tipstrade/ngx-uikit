@@ -1,11 +1,12 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { AlertDirective } from "ngx-uikit";
+import { DemoTitleComponent } from "../../components/demo-title/demo-title.component";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 
 @Component({
   selector: "app-alert",
-  imports: [CommonModule, OptionsComponent, AlertDirective],
+  imports: [CommonModule, OptionsComponent, AlertDirective, DemoTitleComponent],
   templateUrl: "./alert.component.html",
   styleUrl: "./alert.component.scss",
 })

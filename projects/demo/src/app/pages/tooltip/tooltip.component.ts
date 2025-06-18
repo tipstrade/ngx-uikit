@@ -1,12 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { TooltipDirective } from "ngx-uikit";
+import { DemoTitleComponent } from "../../components/demo-title/demo-title.component";
 import { OptionConfig, OptionsComponent } from "../../components/options/options.component";
 import { MergePipe } from "../../pipes/merge-pipe";
 
 @Component({
   selector: "app-tooltip",
-  imports: [CommonModule, OptionsComponent, MergePipe, TooltipDirective],
+  imports: [CommonModule, OptionsComponent, MergePipe, TooltipDirective, DemoTitleComponent],
   templateUrl: "./tooltip.component.html",
   styleUrl: "./tooltip.component.scss",
 })
