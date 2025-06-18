@@ -1,8 +1,70 @@
 <app-demo-title />
 
 <hr class="uk-margin-medium">
-<p>Add the <span style="color: #f0506e;">uk-height-viewport</span> attribute to create a container that fills the
-  height of the entire viewport. You can
-  change the height behavior by adding the <span style="color: #f0506e;">offset-top</span>, <span
-    style="color: #f0506e;">offset-bottom</span> or <span style="color: #f0506e;">expand</span> options to the
-  attribute.</p>
+
+<div class="uk-child-width-1-6@m uk-light " uikitGrid>
+  <div class="uk-first-column">
+
+    <div class="uk-section uk-section-primary uk-flex uk-flex-center uk-flex-middle uk-text-center uk-height-viewport">
+      <h1>CSS</h1>
+    </div>
+
+  </div>
+  <div>
+
+    <div class="uk-section uk-section-primary uk-flex uk-flex-center uk-flex-middle uk-text-center" uikitHeightViewport
+      style="min-height: max(0px, 100vh);">
+      <h1>JS</h1>
+    </div>
+
+  </div>
+  <div>
+
+    <div class="uk-section uk-section-primary uk-flex uk-flex-center uk-flex-middle uk-text-center"
+      [uikitHeightViewport]="{offsetTop: true}" style="min-height: max(0px, -150.391px + 100vh);">
+      <div>
+        <h1>JS</h1>
+        <div>top: true</div>
+      </div>
+    </div>
+
+  </div>
+  <div>
+
+    <div class="uk-section uk-section-primary uk-flex uk-flex-center uk-flex-middle uk-text-center"
+      [uikitHeightViewport]="{offsetTop: true, offsetBottom: true}" style="min-height: max(0px, -302.391px + 100vh);">
+      <div>
+        <h1>JS</h1>
+        <div>top: true</div>
+        <div>bottom: true</div>
+      </div>
+    </div>
+
+    <div class="uk-padding uk-background-secondary">Lorem ipsum dolor sit amet.</div>
+
+  </div>
+  <div>
+
+    <div class="uk-section uk-section-primary uk-flex uk-flex-center uk-flex-middle uk-text-center"
+      [uikitHeightViewport]="{offsetTop: true, offsetBottom: 10}" style="min-height: max(0px, -150.391px + 90vh);">
+      <div>
+        <h1>JS</h1>
+        <div>top: true</div>
+        <div>bottom: 10%</div>
+      </div>
+    </div>
+
+  </div>
+  <div>
+
+    <div class="uk-section uk-section-primary uk-flex uk-flex-center uk-flex-middle uk-text-center"
+      [uikitHeightViewport]="{offsetTop: true, offsetBottom: '50px'}" style="min-height: max(0px, -200.391px + 100vh);">
+      <div>
+        <h1>JS</h1>
+        <div>top: true</div>
+        <div>bottom: 50px</div>
+      </div>
+    </div>
+
+  </div>
+</div>

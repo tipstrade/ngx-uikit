@@ -3,38 +3,80 @@
 <hr class="uk-margin-medium">
 
 <form>
-  <fieldset class="uk-fieldset">
 
-    <legend class="uk-legend">Legend</legend>
+  <legend class="uk-legend">File</legend>
 
-    <div class="uk-margin">
-      <input class="uk-input" type="text" placeholder="Input" aria-label="Input">
+  <!-- File -->
+
+  <div class="uk-margin">
+    <div uikitFormCustom>
+      <input type="file" aria-label="Custom controls">
+      <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
     </div>
+  </div>
 
-    <div class="uk-margin">
-      <select class="uk-select" aria-label="Select">
-        <option>Option 01</option>
-        <option>Option 02</option>
+  <div class="uk-margin">
+    <span class="uk-text-middle">Here is a text</span>
+    <div uikitFormCustom>
+      <input type="file" aria-label="Custom controls">
+      <span class="uk-link">upload</span>
+    </div>
+  </div>
+
+  <div class="uk-margin" uk-margin>
+    <div [uikitFormCustom]="true">
+      <input type="file" aria-label="Custom controls">
+      <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls"
+        disabled>
+    </div>
+    <button class="uk-button uk-button-default">Submit</button>
+  </div>
+
+  <!-- Select -->
+
+  <legend class="uk-legend">Select</legend>
+
+  <div class="uk-margin">
+    <div uikitFormCustom="true">
+      <select aria-label="Custom controls">
+        <option value="1">Option 01</option>
+        <option value="2">Option 02</option>
+        <option value="3">Option 03</option>
+        <option value="4">Option 04</option>
       </select>
+      <span></span>
     </div>
+  </div>
 
-    <div class="uk-margin">
-      <textarea class="uk-textarea" rows="5" placeholder="Textarea" aria-label="Textarea"></textarea>
+  <div class="uk-margin">
+    <div uikitFormCustom="> * > span:last-child">
+      <select aria-label="Custom controls">
+        <option value="1">Option 01</option>
+        <option value="2">Option 02</option>
+        <option value="3">Option 03</option>
+        <option value="4">Option 04</option>
+      </select>
+      <span class="uk-link">
+        <span uk-icon="icon: pencil"></span>
+        <span></span>
+      </span>
     </div>
+  </div>
 
-    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-      <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
-      <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+  <div class="uk-margin">
+    <div uikitFormCustom="> * > span:first-child">
+      <select aria-label="Custom controls">
+        <option value="">Please select...</option>
+        <option value="1">Option 01</option>
+        <option value="2">Option 02</option>
+        <option value="3">Option 03</option>
+        <option value="4">Option 04</option>
+      </select>
+      <button class="uk-button uk-button-default" type="button" tabindex="-1">
+        <span></span>
+        <span uk-icon="icon: chevron-down"></span>
+      </button>
     </div>
+  </div>
 
-    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-      <label><input class="uk-checkbox" type="checkbox" checked> A</label>
-      <label><input class="uk-checkbox" type="checkbox"> B</label>
-    </div>
-
-    <div class="uk-margin">
-      <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1" aria-label="Range">
-    </div>
-
-  </fieldset>
 </form>

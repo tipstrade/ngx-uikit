@@ -22,7 +22,6 @@ import { NavDirective } from "./directives/nav.directive";
 import { NavbarDirective } from "./directives/navbar.directive";
 import { OffCanvasDirective } from "./directives/off-canvas.directive";
 import { ParallaxDirective } from "./directives/parallax.directive";
-import { ScrollDirective } from "./directives/scroll.directive";
 import { ScrollspyNavDirective } from "./directives/scrollspy-nav.directive";
 import { ScrollspyDirective } from "./directives/scrollspy.directive";
 import { SliderDirective } from "./directives/slider.directive";
@@ -31,6 +30,7 @@ import { SortableDirective } from "./directives/sortable.directive";
 import { StickyDirective } from "./directives/sticky.directive";
 import { SvgDirective } from "./directives/svg.directive";
 import { SwitcherDirective } from "./directives/switcher.directive";
+import { TabDirective } from "./directives/tab.directive";
 import { ToggleDirective } from "./directives/toggle.directive";
 import { TooltipDirective } from "./directives/tooltip.directive";
 import { VideoDirective } from "./directives/video.directive";
@@ -60,7 +60,6 @@ import { VideoDirective } from "./directives/video.directive";
     NavbarDirective,
     OffCanvasDirective,
     ParallaxDirective,
-    ScrollDirective,
     ScrollspyDirective,
     ScrollspyNavDirective,
     SliderDirective,
@@ -69,6 +68,7 @@ import { VideoDirective } from "./directives/video.directive";
     StickyDirective,
     SvgDirective,
     SwitcherDirective,
+    TabDirective,
     ToggleDirective,
     TooltipDirective,
     VideoDirective,
@@ -97,7 +97,6 @@ import { VideoDirective } from "./directives/video.directive";
     NavbarDirective,
     OffCanvasDirective,
     ParallaxDirective,
-    ScrollDirective,
     ScrollspyDirective,
     ScrollspyNavDirective,
     SliderDirective,
@@ -106,6 +105,7 @@ import { VideoDirective } from "./directives/video.directive";
     StickyDirective,
     SvgDirective,
     SwitcherDirective,
+    TabDirective,
     ToggleDirective,
     TooltipDirective,
     VideoDirective,

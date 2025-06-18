@@ -2,14 +2,19 @@ import { Directive, Input } from "@angular/core";
 import type UIkitNS from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
+/// =============================REMOVE THIS
+interface ExtraOptions {
+  handle?: string
+}
+
 @Directive({
   selector: "[uikitSortable]",
 })
-export class SortableDirective extends UIkitDirective<UIkitNS.UIkitSortableOptions, any> {
+export class SortableDirective extends UIkitDirective<UIkitNS.UIkitSortableOptions & ExtraOptions, any> {
   @Input("uikitSortable")
-  public override options: UIkitNS.UIkitSortableOptions | "" | null | undefined;
+  public override options: (UIkitNS.UIkitSortableOptions & ExtraOptions) | "" | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitSortableOptions): (UIkitNS.UIkitSortableOptions & object) | undefined {
+  protected override parseOptions(options: UIkitNS.UIkitSortableOptions & ExtraOptions): (UIkitNS.UIkitSortableOptions & object) | undefined {
     return options;
   }
 
