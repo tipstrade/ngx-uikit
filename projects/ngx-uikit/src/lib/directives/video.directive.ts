@@ -10,7 +10,13 @@ export class VideoDirective extends UIkitDirective<UIkitNS.UIkitVideoOptions | s
   public override options: string | boolean | UIkitNS.UIkitVideoOptions | "" | null | undefined;
 
   protected override parseOptions(options: string | boolean | UIkitNS.UIkitVideoOptions): (UIkitNS.UIkitVideoOptions & object) | undefined {
-    if (typeof options === "string" || typeof options === "boolean") {
+    if (typeof options === "boolean") {
+      return { autoplay: options };
+    } else if (options === "true") {
+      return { autoplay: true };
+    } else if (options === "false") {
+      return { autoplay: false };
+    } else if (typeof options === "string") {
       return { autoplay: options };
     }
 

@@ -5,5 +5,11 @@ testUIkitDirective({
   name: "FormCustomDirective",
   selector: "uikitFormCustom",
   type: FormCustomDirective,
-
+  expectedOptions: [
+    [true, { target: true }],
+    ["true", { target: true }],
+    [false, { target: false }],
+    ["false", { target: false }],
+    [">", { target: ">" }],
+  ],
 });
