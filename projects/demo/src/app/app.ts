@@ -56,7 +56,6 @@ export class AppComponent {
     "switcher",
     "toggle",
     "tooltip",
-    "upload",
     "video",
   ];
 

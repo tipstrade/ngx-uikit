@@ -33,7 +33,6 @@ import { SvgDirective } from "./directives/svg.directive";
 import { SwitcherDirective } from "./directives/switcher.directive";
 import { ToggleDirective } from "./directives/toggle.directive";
 import { TooltipDirective } from "./directives/tooltip.directive";
-import { UploadDirective } from "./directives/upload.directive";
 import { VideoDirective } from "./directives/video.directive";
 
 @NgModule({
@@ -72,7 +71,6 @@ import { VideoDirective } from "./directives/video.directive";
     SwitcherDirective,
     ToggleDirective,
     TooltipDirective,
-    UploadDirective,
     VideoDirective,
   ],
   exports: [
@@ -110,7 +108,6 @@ import { VideoDirective } from "./directives/video.directive";
     SwitcherDirective,
     ToggleDirective,
     TooltipDirective,
-    UploadDirective,
     VideoDirective,
   ],
 })
