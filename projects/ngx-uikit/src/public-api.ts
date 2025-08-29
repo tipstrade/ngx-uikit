@@ -6,6 +6,7 @@ export { AccordionDirective } from "./lib/directives/accordion.directive";
 export { AlertDirective } from "./lib/directives/alert.directive";
 export { CountdownDirective } from "./lib/directives/countdown.directive";
 export { CoverDirective } from "./lib/directives/cover.directive";
+export { DropParentIconDirective } from "./lib/directives/drop-parent-icon.directive";
 export { DropDirective } from "./lib/directives/drop.directive";
 export { DropdownDirective } from "./lib/directives/dropdown.directive";
 export { DropnavDirective } from "./lib/directives/dropnav.directive";

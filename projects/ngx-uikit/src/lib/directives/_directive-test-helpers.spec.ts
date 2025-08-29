@@ -13,6 +13,7 @@ interface TestConfig<T extends UIkitDirective<TOptions, TElement>, TOptions = un
   template?: string
   defaultOptions?: TOptions
   expectedOptions?: [TOptions | string | "" | null | undefined, TOptions & object][]
+  otherImports?: Type<unknown>[]
   otherTests?: (getContext: () => DirectiveTestContext<T>) => void
 }
 
@@ -34,10 +35,10 @@ export const addDestroySpy = (directive: DirectiveWithRef<unknown, unknown>): ja
   return directive.ref.$destroy;
 };
 
-export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, unknown>, TOptions>(template: string, type: Type<T>, options: TOptions, detectChanges = true): DirectiveTestContext<T> => {
+export const createDirectiveFixtureHost = <T extends UIkitDirective<TOptions, unknown>, TOptions>(template: string, type: Type<T>, options: TOptions, otherImports?: Type<unknown>[], detectChanges = true): DirectiveTestContext<T> => {
   @Component({
     template,
-    imports: [type],
+    imports: [type, ...otherImports ?? []],
   })
   class TestHostComponent {
     public options: TOptions | "" | null | undefined;
@@ -77,7 +78,7 @@ export function testUIkitDirective<T extends DirectiveWithRef<unknown, unknown>>
     let context: DirectiveTestContext<T>;
 
     beforeEach(() => {
-      context = createDirectiveFixtureHost(config.template ?? `<div [${config.selector}]="options"></div>`, config.type, config.defaultOptions);
+      context = createDirectiveFixtureHost(config.template ?? `<div [${config.selector}]="options"></div>`, config.type, config.defaultOptions, config.otherImports);
     });
 
     it("should create an instance", () => {

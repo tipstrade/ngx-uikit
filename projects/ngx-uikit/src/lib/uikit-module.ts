@@ -3,6 +3,7 @@ import { AccordionDirective } from "./directives/accordion.directive";
 import { AlertDirective } from "./directives/alert.directive";
 import { CountdownDirective } from "./directives/countdown.directive";
 import { CoverDirective } from "./directives/cover.directive";
+import { DropParentIconDirective } from "./directives/drop-parent-icon.directive";
 import { DropDirective } from "./directives/drop.directive";
 import { DropdownDirective } from "./directives/dropdown.directive";
 import { DropnavDirective } from "./directives/dropnav.directive";
@@ -41,6 +42,7 @@ import { VideoDirective } from "./directives/video.directive";
     AlertDirective,
     CountdownDirective,
     CoverDirective,
+    DropParentIconDirective,
     DropDirective,
     DropdownDirective,
     DropnavDirective,
@@ -78,6 +80,7 @@ import { VideoDirective } from "./directives/video.directive";
     AlertDirective,
     CountdownDirective,
     CoverDirective,
+    DropParentIconDirective,
     DropDirective,
     DropdownDirective,
     DropnavDirective,

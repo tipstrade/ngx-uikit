@@ -1,16 +1,14 @@
 <div #container>
   <app-demo-title />
 
-  <hr class="uk-margin-medium">
-  <div class="uk-alert uk-alert-warning">Not implemented in ngx-uikit</div>
   <app-options #options [config]="config"></app-options>
 
   <hr class="uk-margin-medium">
-  <nav uk-dropnav>
+  <nav uikitDropnav>
     <ul class="uk-subnav">
       <li class="uk-active"><a href="#">Active</a></li>
       <li>
-        <a href>Parent <span uk-drop-parent-icon></span></a>
+        <a href>Parent <span uikitDropParentIcon></span></a>
         <div class="uk-dropdown">
           <ul class="uk-nav uk-dropdown-nav">
             <li class="uk-active"><a href="#">Active</a></li>
@@ -20,7 +18,7 @@
         </div>
       </li>
       <li>
-        <a href>Parent <span uk-drop-parent-icon></span></a>
+        <a href>Parent <span uikitDropParentIcon></span></a>
         <div class="uk-dropdown">
           <ul class="uk-nav uk-dropdown-nav">
             <li class="uk-active"><a href="#">Active</a></li>

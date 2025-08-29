@@ -34,7 +34,7 @@ describe("TestDirective", () => {
   let context: DirectiveTestContext<TestDirective>;
 
   beforeEach(() => {
-    context = createDirectiveFixtureHost("<div [uikitTest]=\"options\"></div>", TestDirective, {}, false);
+    context = createDirectiveFixtureHost("<div [uikitTest]=\"options\"></div>", TestDirective, {}, undefined, false);
   });
 
   it ("should only set ref once", () => {

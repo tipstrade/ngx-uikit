@@ -3,7 +3,7 @@ import { DropdownDirective } from "./dropdown.directive";
 
 const template = `<div class="uk-inline">
     <button class="uk-button uk-button-default" type="button">Hover</button>
-    <div uk-dropdown>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+    <div uikitDropdown>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 </div>
 
 <div class="uk-inline">

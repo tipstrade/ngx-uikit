@@ -1,8 +1,17 @@
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { DropnavDirective } from "./dropnav.directive";
 
-describe("DropnavDirective", () => {
-  it("should create an instance", () => {
-    const directive = new DropnavDirective();
-    expect(directive).toBeTruthy();
-  });
+const template = `<ul uikitDropnav>
+    <li>
+        <a href=""></a>
+        <div class="uk-dropdown">
+            <ul class="uk-nav uk-dropdown-nav">…</ul>
+        </div>
+    </li>
+</ul>`;
+
+testUIkitDirective({
+  name: "DropnavDirective",
+  template, type: DropnavDirective,
+  expectedOptions: [[{}, {}]],
 });
