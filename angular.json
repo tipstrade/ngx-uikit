@@ -44,15 +44,6 @@
             ],
             "karmaConfig": "projects/ngx-uikit/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/ngx-uikit/src/**/*.ts",
-              "projects/ngx-uikit/src/**/*.html"
-            ]
-          }
         }
       }
     },
