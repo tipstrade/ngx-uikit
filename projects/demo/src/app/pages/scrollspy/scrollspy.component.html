@@ -3,13 +3,14 @@
 <hr class="uk-margin-medium">
 <div class="uk-child-width-1-2@m uk-grid-match" uikitGrid>
   <div>
-    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+    <div class="uk-card uk-card-default uk-card-body" [uikitScrollspy]="{cls: 'uk-animation-slide-left', repeat: true}">
       <h3 class="uk-card-title">Left</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
   </div>
   <div>
-    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+    <div class="uk-card uk-card-default uk-card-body"
+      [uikitScrollspy]="{cls: 'uk-animation-slide-right', repeat: true}">
       <h3 class="uk-card-title">Right</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
@@ -19,14 +20,14 @@
 <div class="uk-child-width-1-2@m uk-grid-match" uikitGrid>
   <div>
     <div class="uk-card uk-card-primary uk-card-body"
-      uk-scrollspy="cls: uk-animation-slide-top; repeat: true; repeat: true; delay: 600">
+      [uikitScrollspy]="{cls: 'uk-animation-slide-top', repeat: true, delay: 600}">
       <h3 class="uk-card-title">Top</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
   </div>
   <div>
     <div class="uk-card uk-card-secondary uk-card-body"
-      uk-scrollspy="cls: uk-animation-slide-bottom; repeat: true; delay: 900">
+      [uikitScrollspy]="{cls: 'uk-animation-slide-bottom', repeat: true, delay: 900}">
       <h3 class="uk-card-title">Bottom</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
