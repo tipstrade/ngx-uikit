@@ -1,19 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitAlert]",
 })
-export class AlertDirective extends UIkitDirective<UIkitNS.UIkitAlertOptions, UIkitNS.UIkitAlertElement> {
+export class AlertDirective extends UIkitDirective<UIkit.UIkitAlertOptions, UIkit.UIkitAlertElement> {
   @Input("uikitAlert")
-  public override options: UIkitNS.UIkitAlertOptions | "" | null | undefined;
+  public override options: UIkit.UIkitAlertOptions | "" | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitAlertOptions): (UIkitNS.UIkitAlertOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitAlertOptions): (UIkit.UIkitAlertOptions & object) | undefined {
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitAlertOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitAlertElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitAlertOptions | undefined, _isInitial?: boolean): UIkit.UIkitAlertElement {
     return UIkit.alert(element, options);
   }
 }

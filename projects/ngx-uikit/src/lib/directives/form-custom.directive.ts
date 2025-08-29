@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitFormCustom]",
 })
-export class FormCustomDirective extends UIkitDirective<UIkitNS.UIkitFormOptions | string | boolean, any> {
+export class FormCustomDirective extends UIkitDirective<UIkit.UIkitFormOptions | string | boolean, UIkit.UIkitElementBase> {
   @Input("uikitFormCustom")
-  public override options: UIkitNS.UIkitFormOptions | string | boolean | null | undefined;
+  public override options: UIkit.UIkitFormOptions | string | boolean | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitFormOptions | string | boolean): (UIkitNS.UIkitFormOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitFormOptions | string | boolean): (UIkit.UIkitFormOptions & object) | undefined {
     if (typeof options === "boolean") {
       return { target: options };
     } else if (options === "true") {
@@ -23,7 +23,7 @@ export class FormCustomDirective extends UIkitDirective<UIkitNS.UIkitFormOptions
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitFormOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitFormOptions | undefined, _isInitial?: boolean): UIkit.UIkitElementBase {
     return UIkit.formCustom(element, options);
   }
 }

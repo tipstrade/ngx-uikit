@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="./types/global-uikit.d.ts" />
-
 /*
  * Public API Surface of ngx-uikit
  */

@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitScrollspy]",
 })
-export class ScrollspyDirective extends UIkitDirective<UIkitNS.UIkitScrollspyOptions | string, any> {
+export class ScrollspyDirective extends UIkitDirective<UIkit.UIkitScrollspyOptions | string, UIkit.UIkitElementBase> {
   @Input("uikitScrollspy")
-  public override options: string | UIkitNS.UIkitScrollspyOptions | "" | null | undefined;
+  public override options: string | UIkit.UIkitScrollspyOptions | "" | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitScrollspyOptions): (UIkitNS.UIkitScrollspyOptions & object) | undefined {
+  protected override parseOptions(options: string | UIkit.UIkitScrollspyOptions): (UIkit.UIkitScrollspyOptions & object) | undefined {
     if (typeof options === "string") {
       return { cls: options };
     }
@@ -17,7 +17,7 @@ export class ScrollspyDirective extends UIkitDirective<UIkitNS.UIkitScrollspyOpt
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitScrollspyOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitScrollspyOptions | undefined, _isInitial?: boolean): UIkit.UIkitElementBase {
     return UIkit.scrollspy(element, options);
   }
 }

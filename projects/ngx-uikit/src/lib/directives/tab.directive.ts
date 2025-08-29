@@ -1,19 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitTab]",
 })
-export class TabDirective extends UIkitDirective<UIkitNS.UIkitTabOptions, any> {
+export class TabDirective extends UIkitDirective<UIkit.UIkitTabOptions, UIkit.UIkitTabElement> {
   @Input("uikitTab")
-  public override options: "" | UIkitNS.UIkitTabOptions | null | undefined;
+  public override options: "" | UIkit.UIkitTabOptions | null | undefined;
 
-  protected override createComponent(element: HTMLElement, options: (UIkitNS.UIkitTabOptions & object) | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: (UIkit.UIkitTabOptions & object) | undefined, _isInitial?: boolean): UIkit.UIkitTabElement {
     return UIkit.tab(element, options);
   }
 
-  protected override parseOptions(options: UIkitNS.UIkitTabOptions): (UIkitNS.UIkitTabOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitTabOptions): (UIkit.UIkitTabOptions & object) | undefined {
     return options;
   }
 }

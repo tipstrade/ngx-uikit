@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitSwitcher]",
 })
-export class SwitcherDirective extends UIkitDirective<UIkitNS.UIkitSwitcherOptions | string, UIkitNS.UIkitSwitcherElement> {
+export class SwitcherDirective extends UIkitDirective<UIkit.UIkitSwitcherOptions | string, UIkit.UIkitSwitcherElement> {
   @Input("uikitSwitcher")
-  public options: string | UIkitNS.UIkitSwitcherOptions | "" | null | undefined;
+  public options: string | UIkit.UIkitSwitcherOptions | "" | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitSwitcherOptions): (UIkitNS.UIkitSwitcherOptions & object) | undefined {
+  protected override parseOptions(options: string | UIkit.UIkitSwitcherOptions): (UIkit.UIkitSwitcherOptions & object) | undefined {
     if (typeof options === "string") {
       return { connect: options };
     }
@@ -17,7 +17,7 @@ export class SwitcherDirective extends UIkitDirective<UIkitNS.UIkitSwitcherOptio
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitSwitcherOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitSwitcherElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitSwitcherOptions | undefined, _isInitial?: boolean): UIkit.UIkitSwitcherElement {
     return UIkit.switcher(element, options);
   }
 }

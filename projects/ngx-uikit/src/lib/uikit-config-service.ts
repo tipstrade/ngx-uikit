@@ -1,10 +1,10 @@
 import { inject, Injectable, InjectionToken } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 
 export interface UIkitConfig {
   /** An optional flag indicating whether loggin is enabled. */
   logging?: boolean
-  plugins?: ((uikit: typeof UIkitNS) => void)[]
+  plugins?: ((uikit: typeof UIkit) => void)[]
 }
 
 export const UIKIT_CONFIG = new InjectionToken<UIkitConfig>("UIkitConfig");
@@ -35,7 +35,7 @@ export class UikitConfigService {
   // Plugins
   // ========================
 
-  public loadPlugin(plugin: (uikit: typeof UIkitNS) => void): void {
+  public loadPlugin(plugin: (uikit: typeof UIkit) => void): void {
     UIkit.use(plugin);
   }
 

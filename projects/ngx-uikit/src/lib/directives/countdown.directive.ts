@@ -1,19 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitCountdown]",
 })
-export class CountdownDirective extends UIkitDirective<UIkitNS.UIkitCountdownOptions, UIkitNS.UIkitCountdownElement> {
+export class CountdownDirective extends UIkitDirective<UIkit.UIkitCountdownOptions, UIkit.UIkitCountdownElement> {
   @Input("uikitCountdown")
-  public override options: UIkitNS.UIkitCountdownOptions | "" | null | undefined;
+  public override options: UIkit.UIkitCountdownOptions | "" | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitCountdownOptions): (UIkitNS.UIkitCountdownOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitCountdownOptions): (UIkit.UIkitCountdownOptions & object) | undefined {
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitCountdownOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitCountdownElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitCountdownOptions | undefined, _isInitial?: boolean): UIkit.UIkitCountdownElement {
     return UIkit.countdown(element, options);
   }
 }

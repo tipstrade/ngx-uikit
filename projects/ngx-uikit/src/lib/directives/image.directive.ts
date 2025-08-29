@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitImage]",
 })
-export class ImageDirective extends UIkitDirective<UIkitNS.UIkitImageOptions | string, any> {
+export class ImageDirective extends UIkitDirective<UIkit.UIkitImageOptions | string, UIkit.UIkitElementBase> {
   @Input("uikitImage")
-  public override options: UIkitNS.UIkitImageOptions | string | null | undefined;
+  public override options: UIkit.UIkitImageOptions | string | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitImageOptions): (UIkitNS.UIkitImageOptions & object) | undefined {
+  protected override parseOptions(options: string | UIkit.UIkitImageOptions): (UIkit.UIkitImageOptions & object) | undefined {
     if (typeof options === "string") {
       return { dataSrc: options };
     }
@@ -17,7 +17,7 @@ export class ImageDirective extends UIkitDirective<UIkitNS.UIkitImageOptions | s
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitImageOptions | undefined, _isInitial?: boolean): any {
-    return (UIkit as any).img(element, options);
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitImageOptions | undefined, _isInitial?: boolean): UIkit.UIkitElementBase {
+    return UIkit.img(element, options);
   }
 }

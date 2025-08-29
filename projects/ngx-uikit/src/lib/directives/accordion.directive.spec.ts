@@ -37,7 +37,7 @@ testUIkitDirective({
       context.directiveInstance.collapseAll();
       context.fixture.detectChanges();
 
-      const items = (context.directiveInstance.ref as any).items as HTMLElement[];
+      const items = context.directiveInstance.ref?.items as HTMLElement[];
       const allCollapsed = items.every(x => !x.classList.contains("uk-open"));
 
       expect(allCollapsed).toBeTrue();

@@ -1,23 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitDropdown]",
 })
-export class DropdownDirective extends UIkitDirective<UIkitNS.UIkitDropdownOptions | string, UIkitNS.UIkitDropdownElement> {
+export class DropdownDirective extends UIkitDirective<UIkit.UIkitDropdownOptions, UIkit.UIkitDropdownElement> {
   @Input("uikitDropdown")
-  public override options: UIkitNS.UIkitDropdownOptions | string | null | undefined;
+  public override options: UIkit.UIkitDropdownOptions | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitDropdownOptions): (UIkitNS.UIkitDropdownOptions & object) | undefined {
-    if (typeof options === "string") {
-      return { pos: options };
-    }
-
+  protected override parseOptions(options: UIkit.UIkitDropdownOptions): (UIkit.UIkitDropdownOptions & object) | undefined {
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitDropdownOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitDropdownElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitDropdownOptions | undefined, _isInitial?: boolean): UIkit.UIkitDropdownElement {
     return UIkit.dropdown(element, options);
   }
 }

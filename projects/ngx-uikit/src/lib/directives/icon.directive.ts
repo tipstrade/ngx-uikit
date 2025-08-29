@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitIcon]",
 })
-export class IconDirective extends UIkitDirective<UIkitNS.UIkitIconOptions | string, { svg: Promise<any> }> {
+export class IconDirective extends UIkitDirective<UIkit.UIkitIconOptions | string, UIkit.UIkitSvgElement> {
   @Input("uikitIcon")
-  public override options: UIkitNS.UIkitIconOptions | string | null | undefined;
+  public override options: UIkit.UIkitIconOptions | string | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitIconOptions): (UIkitNS.UIkitIconOptions & object) | undefined {
+  protected override parseOptions(options: string | UIkit.UIkitIconOptions): (UIkit.UIkitIconOptions & object) | undefined {
     if (typeof options === "string") {
       return { icon: options };
     }
@@ -17,7 +17,7 @@ export class IconDirective extends UIkitDirective<UIkitNS.UIkitIconOptions | str
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitIconOptions | undefined, _isInitial?: boolean): { svg: Promise<any> } {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitIconOptions | undefined, _isInitial?: boolean): UIkit.UIkitSvgElement {
     return UIkit.icon(element, options);
   }
 }

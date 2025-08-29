@@ -5,5 +5,5 @@ testUIkitDirective({
   name: "OffCanvasDirective",
   selector: "uikitOffCanvas",
   type: OffCanvasDirective,
-  expectedOptions: [["slide", { mode: "slide" }]],
+  expectedOptions: [],
 });

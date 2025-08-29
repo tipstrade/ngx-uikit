@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitFilter]",
 })
-export class FilterDirective extends UIkitDirective<UIkitNS.UIkitFilterOptions | string, any> {
+export class FilterDirective extends UIkitDirective<UIkit.UIkitFilterOptions | string, UIkit.UIkitElementBase> {
   @Input("uikitFilter")
-  public override options: UIkitNS.UIkitFilterOptions | string | null | undefined;
+  public override options: UIkit.UIkitFilterOptions | string | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitFilterOptions): (UIkitNS.UIkitFilterOptions & object) | undefined {
+  protected override parseOptions(options: string | UIkit.UIkitFilterOptions): (UIkit.UIkitFilterOptions & object) | undefined {
     if (typeof options === "string") {
       return { target: options };
     }
@@ -17,7 +17,7 @@ export class FilterDirective extends UIkitDirective<UIkitNS.UIkitFilterOptions |
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitFilterOptions | undefined, _isInitial?: boolean): any {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitFilterOptions | undefined, _isInitial?: boolean): UIkit.UIkitElementBase {
     return UIkit.filter(element, options);
   }
 }

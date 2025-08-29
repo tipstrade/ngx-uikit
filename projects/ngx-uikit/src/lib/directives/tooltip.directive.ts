@@ -1,15 +1,15 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitTooltip]",
 })
-export class TooltipDirective extends UIkitDirective<UIkitNS.UIkitTooltipOptions | string, UIkitNS.UIkitTooltipElement> {
+export class TooltipDirective extends UIkitDirective<UIkit.UIkitTooltipOptions | string, UIkit.UIkitTooltipElement> {
   @Input("uikitTooltip")
-  public override options: UIkitNS.UIkitTooltipOptions | string | null | undefined;
+  public override options: UIkit.UIkitTooltipOptions | string | null | undefined;
 
-  protected override parseOptions(options: string | UIkitNS.UIkitTooltipOptions): (UIkitNS.UIkitTooltipOptions & object) | undefined {
+  protected override parseOptions(options: string | UIkit.UIkitTooltipOptions): (UIkit.UIkitTooltipOptions & object) | undefined {
     if (typeof options === "string") {
       return { title: options };
     }
@@ -17,7 +17,7 @@ export class TooltipDirective extends UIkitDirective<UIkitNS.UIkitTooltipOptions
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitTooltipOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitTooltipElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitTooltipOptions | undefined, _isInitial?: boolean): UIkit.UIkitTooltipElement {
     return UIkit.tooltip(element, options);
   }
 }

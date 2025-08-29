@@ -1,19 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitScroll]",
 })
-export class ScrollDirective extends UIkitDirective<UIkitNS.UIkitScrollOptions, UIkitNS.UIkitScrollElement> {
+export class ScrollDirective extends UIkitDirective<UIkit.UIkitScrollOptions, UIkit.UIkitScrollElement> {
   @Input("uikitScroll")
-  public override options: UIkitNS.UIkitScrollOptions | "" | null | undefined;
+  public override options: UIkit.UIkitScrollOptions | "" | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitScrollOptions): (UIkitNS.UIkitScrollOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitScrollOptions): (UIkit.UIkitScrollOptions & object) | undefined {
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitScrollOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitScrollElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitScrollOptions | undefined, _isInitial?: boolean): UIkit.UIkitScrollElement {
     return UIkit.scroll(element, options);
   }
 }

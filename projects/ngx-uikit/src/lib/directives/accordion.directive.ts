@@ -1,19 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitAccordion]",
 })
-export class AccordionDirective extends UIkitDirective<UIkitNS.UIkitAccordionOptions, UIkitNS.UIkitAccordionElement> {
+export class AccordionDirective extends UIkitDirective<UIkit.UIkitAccordionOptions, UIkit.UIkitAccordionElement> {
   @Input("uikitAccordion")
-  public override options: UIkitNS.UIkitAccordionOptions | "" | null | undefined;
+  public override options: UIkit.UIkitAccordionOptions | "" | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitAccordionOptions): (UIkitNS.UIkitAccordionOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitAccordionOptions): (UIkit.UIkitAccordionOptions & object) | undefined {
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitAccordionOptions | undefined): UIkitNS.UIkitAccordionElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitAccordionOptions | undefined): UIkit.UIkitAccordionElement {
     return UIkit.accordion(element, options);
   }
 

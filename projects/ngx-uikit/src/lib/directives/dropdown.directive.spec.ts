@@ -1,4 +1,4 @@
-import { DirectiveTestContext, testUIkitDirective } from "./_directive-test-helpers.spec";
+import { testUIkitDirective } from "./_directive-test-helpers.spec";
 import { DropdownDirective } from "./dropdown.directive";
 
 const template = `<div class="uk-inline">
@@ -14,26 +14,5 @@ const template = `<div class="uk-inline">
 testUIkitDirective({
   name: "DropdownDirective",
   template, type: DropdownDirective,
-  expectedOptions: [[{}, {}], ["top-left", { pos: "top-left" }]],
-  otherTests: (getContext) => {
-    let context: DirectiveTestContext<DropdownDirective>;
-
-    beforeEach(() => {
-      context = getContext();
-    });
-
-    it("should handle empty string options", () => {
-      context.fixture.componentInstance.options = "";
-      context.fixture.detectChanges();
-
-      expect(context.directiveInstance.options).toEqual("");
-    });
-
-    it("should handle string options", () => {
-      context.fixture.componentInstance.options = "abc";
-      context.fixture.detectChanges();
-
-      expect(context.directiveInstance.options).toEqual("abc");
-    });
-  },
+  expectedOptions: [[{}, {}]],
 });

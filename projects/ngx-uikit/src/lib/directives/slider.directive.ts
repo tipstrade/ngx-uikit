@@ -1,19 +1,19 @@
 import { Directive, Input } from "@angular/core";
-import type UIkitNS from "uikit";
+import UIkit from "uikit";
 import { UIkitDirective } from "./_uikit.directive";
 
 @Directive({
   selector: "[uikitSlider]",
 })
-export class SliderDirective extends UIkitDirective<UIkitNS.UIkitSliderOptions, UIkitNS.UIkitSliderElement> {
+export class SliderDirective extends UIkitDirective<UIkit.UIkitSliderOptions, UIkit.UIkitSliderElement> {
   @Input("uikitSlider")
-  public override options: UIkitNS.UIkitSliderOptions | "" | null | undefined;
+  public override options: UIkit.UIkitSliderOptions | "" | null | undefined;
 
-  protected override parseOptions(options: UIkitNS.UIkitSliderOptions): (UIkitNS.UIkitSliderOptions & object) | undefined {
+  protected override parseOptions(options: UIkit.UIkitSliderOptions): (UIkit.UIkitSliderOptions & object) | undefined {
     return options;
   }
 
-  protected override createComponent(element: HTMLElement, options: UIkitNS.UIkitSliderOptions | undefined, _isInitial?: boolean): UIkitNS.UIkitSliderElement {
+  protected override createComponent(element: HTMLElement, options: UIkit.UIkitSliderOptions | undefined, _isInitial?: boolean): UIkit.UIkitSliderElement {
     return UIkit.slider(element, options);
   }
 }

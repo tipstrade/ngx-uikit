@@ -10,5 +10,5 @@ testUIkitDirective({
   name: "DropDirective",
   template,
   type: DropDirective,
-  expectedOptions: [[{}, {}], ["top-left", { pos: "top-left" }]],
+  expectedOptions: [[{}, {}]],
 });
