@@ -28,6 +28,7 @@ export { OffCanvasDirective } from "./lib/directives/off-canvas.directive";
 export { ParallaxDirective } from "./lib/directives/parallax.directive";
 export { ScrollspyNavDirective } from "./lib/directives/scrollspy-nav.directive";
 export { ScrollspyDirective } from "./lib/directives/scrollspy.directive";
+export { SlidenavDirective } from "./lib/directives/slidenav.directive";
 export { SliderDirective } from "./lib/directives/slider.directive";
 export { SlideshowDirective } from "./lib/directives/slideshow.directive";
 export { SortableDirective } from "./lib/directives/sortable.directive";

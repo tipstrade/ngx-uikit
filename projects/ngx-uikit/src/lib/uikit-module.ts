@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { SlidenavDirective } from "ngx-uikit";
 import { AccordionDirective } from "./directives/accordion.directive";
 import { AlertDirective } from "./directives/alert.directive";
 import { CountdownDirective } from "./directives/countdown.directive";
@@ -66,6 +67,7 @@ import { VideoDirective } from "./directives/video.directive";
     ScrollspyNavDirective,
     SliderDirective,
     SlideshowDirective,
+    SlidenavDirective,
     SortableDirective,
     StickyDirective,
     SvgDirective,
@@ -104,6 +106,7 @@ import { VideoDirective } from "./directives/video.directive";
     ScrollspyNavDirective,
     SliderDirective,
     SlideshowDirective,
+    SlidenavDirective,
     SortableDirective,
     StickyDirective,
     SvgDirective,
